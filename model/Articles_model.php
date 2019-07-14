@@ -1,31 +1,37 @@
 <?php
 
+namespace Blog\Model;
+
 require_once("model/Connect_model.php");
 
-// Renvoie la liste de tous les articles
-function getAllArticles() 
-{
-    $db = dbConnect();
-    $articles = $db->query('SELECT * FROM articles ORDER BY id ASC');
+class Articles_model extends Connect_model{
 
-    return $articles;
-}
+    // Renvoie la liste de tous les articles
+    function getAllArticles() 
+    {
+        $db = $this->dbConnect();
+        $articles = $db->query('SELECT * FROM articles ORDER BY id ASC');
 
-// Renvoie la liste des deux derniers articles
-function getLastArticles() 
-{
-    $db = dbConnect();
-    $lastArticles = $db->query('SELECT * FROM articles ORDER BY id DESC LIMIT 2');
+        return $articles;
+    }
 
-    return $lastArticles;
-}
+    // Renvoie la liste des deux derniers articles
+    function getLastArticles() 
+    {
+        $db = $this->dbConnect();
+        $lastArticles = $db->query('SELECT * FROM articles ORDER BY id DESC LIMIT 2');
 
-// Renvoie l'article
-function getArticle($id) 
-{
-    $db = dbConnect();
-    $article = $db->prepare('SELECT * FROM articles WHERE id = ?');
-    $article->execute(array($id));
+        return $lastArticles;
+    }
 
-    return $article->fetch();
+    // Renvoie l'article
+    function getArticle($id) 
+    {
+        $db = $this->dbConnect();
+        $article = $db->prepare('SELECT * FROM articles WHERE id = ?');
+        $article->execute(array($id));
+
+        return $article->fetch();
+    }
+
 }

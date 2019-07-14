@@ -5,8 +5,9 @@ require_once('model/Articles_model.php');
 
 function homeView(){
 
-    $lastArticles = getLastArticles();
-    $articles = getAllArticles();
+    $articlesModel = new \Blog\Model\Articles_model();
+    $lastArticles = $articlesModel->getLastArticles();
+    $articles = $articlesModel->getAllArticles();
     
     // Affichage
     require 'view/home_view.php';
@@ -14,8 +15,9 @@ function homeView(){
 
 function articleView(){
 
-    $articles = getAllArticles();
-    $article = getArticle($_GET['id']);
+    $articlesModel = new \Blog\Model\Articles_model();
+    $articles = $articlesModel->getAllArticles();
+    $article = $articlesModel->getArticle($_GET['id']);
     
     // Affichage
     require 'view/article_view.php';
