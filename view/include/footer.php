@@ -4,9 +4,9 @@
             <div class="category-footer">
                 <h5>Chapitres</h5>
                 <ul>
-                    <li><a class="link-footer" href="#">Chapitre</a></li>
-                    <li><a class="link-footer" href="#">Chapitre</a></li>
-                    <li><a class="link-footer" href="#">Chapitre</a></li>
+                     <?php foreach ($articles as $article){?>
+                    <li><a class="link-footer" href="index.php?action=article&amp;id=<?= $article['id'] ?>"><?= $article['title'] ?></a></li>
+                    <?php } ?>
                 </ul>
             </div>
             <div class="category-footer">
@@ -31,3 +31,5 @@
         </div>
 
 </footer>
+</body>
+</html>

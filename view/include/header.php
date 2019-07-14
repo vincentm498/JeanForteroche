@@ -1,3 +1,4 @@
+<body>
     <header>
         <div id="menu">
             <div class="brand">
@@ -15,4 +16,5 @@
 
             </nav>
         </div>
+        
     </header>
