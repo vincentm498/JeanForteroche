@@ -12,10 +12,10 @@
             <div class="category-footer">
                 <h5>Navigation</h5>
                 <ul>
-                    <li><a class="link-footer" href="#">Accueil</a></li>
-                    <li><a class="link-footer" href="#">Qui suis-je</a></li>
-                    <li><a class="link-footer" href="#">Roman</a></li>
-                    <li><a class="link-footer" href="#">Contact</a></li>
+                    <li><a class="link-footer" href="index.php?page=home#header">Accueil</a></li>
+                    <li><a class="link-footer" href="index.php?page=home#author">Qui suis-je</a></li>
+                    <li><a class="link-footer" href="index.php?page=#roman">Roman</a></li>
+                    <li><a class="link-footer" href="index.php?page=home#contact">Contact</a></li>
                     <li><a class="link-footer" href="#">Administration</a></li>
                 </ul>
             </div>
@@ -26,7 +26,7 @@
                 <a class="link-footer" href="#"><i class="fab fa-linkedin-in fa-2x"></i></a>
             </div>
             <div class="credits">
-                © 2019 JeanForteroche.fr - <a href="#">Mentions légales</a>
+                © 2019 JeanForteroche.fr - <a href="index.php?page=mentions">Mentions légales</a>
             </div>
         </div>
 
