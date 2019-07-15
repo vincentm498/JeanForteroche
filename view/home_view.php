@@ -9,23 +9,23 @@
             <h1>Jean Forteroche</h1>
             <h2>Billet simple pour l'Alaska</h2>
         </section>
-        
+
         <section id="sub-header">
-            <?php foreach ($lastArticles as $lastArticle){?>
+            <?php foreach ($lastArticles as $lastArticle) {?>
             <div class="chapitre">
                 <div class="conteneur text">
-                    <h3><?= $lastArticle['title'] ?></h3>
-                    <span><?= date_format(date_create($lastArticle['date']), "d/m/Y H:i") ?></span>
-                    <p><?= $lastArticle['content'] ?></p>
-                    <a class="btn" href="index.php?action=article&amp;id=<?= $lastArticle['id'] ?>">Lire ...</a>
+                    <h3><?=$lastArticle['title']?></h3>
+                    <span><?=date_format(date_create($lastArticle['date']), "d/m/Y H:i")?></span>
+                    <p><?=$lastArticle['content']?></p>
+                    <a class="btn" href="index.php?action=article&amp;id=<?=$lastArticle['id']?>">Lire ...</a>
                 </div>
                 <div class="conteneur image">
-                    <img src="" alt="">
-                </div>            
+                    <img src="<?=$lastArticle['lien_image1']?>" alt="">
+                </div>
             </div>
-            <?php } ?>
+            <?php }?>
         </section>
-        
+
         <section id="author">
             <div class="conteneur-1200">
                 <div class="conteneur-1200-image">
