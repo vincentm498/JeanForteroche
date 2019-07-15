@@ -2,6 +2,7 @@
     <header>
         <div id="menu">
             <div class="brand">
+                <a class="link-menu" href="index.php?page=home#header"></a>
             </div>
 
             <input id="menu-checkbox" type="checkbox" class="menuHamburger">
@@ -16,5 +17,5 @@
 
             </nav>
         </div>
-        
+
     </header>

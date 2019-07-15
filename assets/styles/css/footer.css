@@ -48,13 +48,9 @@ footer .category-footer li a:before {
     left: -11px;
 }
 
-footer .link-footer {
+footer .category-footer .link-footer {
     color: #FFF;
 }
-
-/*************************************************
-                                            FOOTER CREDITS
-*************************************************/
 
 footer .credits {
     width: 100%;
