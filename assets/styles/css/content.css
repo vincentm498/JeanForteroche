@@ -1,0 +1,230 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 94px;
+}
+
+h1 {
+    font-size: 60px;
+    color: #595959;
+    text-transform: uppercase;
+    font-weight: lighter;
+    line-height: 112px;
+    text-align: center;
+    margin: 10px 0;
+}
+
+h2 {
+    font-size: 40px;
+    color: #595959;
+    text-transform: uppercase;
+    font-weight: lighter;
+    line-height: 50px;
+    text-align: center;
+    margin: 50px auto;
+    max-width: 800px;
+}
+
+h3 {
+    font-size: 20px;
+    color: #595959;
+    font-weight: lighter;
+    text-align: center;
+}
+
+p {
+    font-size: 15px;
+    color: #707070;
+    max-width: 1200px;
+    margin: 15px auto;
+}
+
+.conteneur-1200 {
+    max-width: 1200px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: #cccccc;
+    padding: 0;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #646464;
+}
+
+li {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/***************************************************************************************************** MEDIA QUERIES 1024px*/
+
+@media (max-width: 1024px) {
+
+    main #sub-header .conteneur.text p {
+        min-height: 14vh;
+    }
+
+    main #sub-header .conteneur {
+        width: 50%;
+    }
+
+    main .chapitre.paire {
+        flex-direction: row-reverse;
+    }
+
+    main .chapitre {
+
+        width: 100%;
+    }
+
+    main #sub-header .conteneur.text {
+
+        padding: 5% 0;
+    }
+
+    main #sub-header h3,
+    main #sub-header span,
+    main #sub-header a {
+
+        margin: 0 5%;
+    }
+
+    main #sub-header p {
+
+        margin: 15px 5%;
+    }
+
+}
+
+/***************************************************************************************************** MEDIA QUERIES 768px*/
+
+@media (max-width: 768px) {
+
+    main #header h1 {
+        font-size: 3em;
+    }
+
+    main #header h2 {
+        font-size: 1.8em;
+    }
+
+}
+
+/***************************************************************************************************** MEDIA QUERIES 560px*/
+
+@media (max-width: 560px) {
+
+    main #sub-header .conteneur {
+        width: 100%;
+    }
+
+    .conteneur-1200 {
+        margin: 0;
+    }
+
+    main .conteneur-1200 {
+        flex-direction: column-reverse !important;
+        flex-wrap: wrap;
+
+    }
+
+    main #roman .conteneur-full {
+        flex-wrap: wrap;
+    }
+
+    main #sub-header .conteneur.image {
+        height: 30vh;
+    }
+
+    main #sub-header .conteneur {
+
+        padding: 10% 2.5%;
+    }
+
+    main .conteneur-1200-image,
+    main .conteneur-1200-text,
+    main .conteneur-full-image,
+    main .conteneur-full-text {
+        width: 100% !important;
+    }
+
+    main .conteneur-1200-image,
+    main .conteneur-full-image {
+        height: 30vh !important;
+        min-height: 30vh !important;
+    }
+
+    main .conteneur-1200-text,
+    main .conteneur-full-text {
+        margin: 50px auto;
+        width: 80% !important;
+    }
+
+    main #contact .conteneur-1200 {
+        flex-direction: column !important;
+        margin: 20px 0;
+    }
+
+    .conteneur-full-text {
+        min-height: 380px;
+    }
+
+    main #sub-header .conteneur {
+        padding: 0;
+    }
+
+
+}
+
+
+/***************************************************************************************************** MEDIA QUERIES 425px */
+
+@media (max-width: 425px) {
+
+    main #header {
+        height: 100vh;
+    }
+
+    main #header h1 {
+        font-size: 2em;
+    }
+
+    main #header h2 {
+        font-size: 1.5em;
+    }
+
+    main #sub-header .conteneur {
+        width: 100%;
+    }
+
+    footer .menu-footer {
+
+        flex-direction: column;
+
+    }
+
+    footer .category-footer {
+        width: 149px;
+
+    }
+
+    #form .row input {
+        width: 100%;
+    }
+
+    main #roman h2 {
+        font-size: 35px;
+        line-height: 35px;
+        margin: 10% 10% 5% 10% !important;
+    }
+
+}
+
+/***************************************************************************************************** MEDIA QUERIES 320px */
+@media (max-width: 320px) {}

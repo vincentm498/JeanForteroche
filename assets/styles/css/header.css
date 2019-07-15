@@ -72,3 +72,114 @@ header nav a.btn:hover {
     background-color: rgb(128, 128, 128);
     color: #FFF;
 }
+
+/***************************************************************************************************** MEDIA QUERIES 1024px*/
+
+@media (max-width: 1024px) {
+
+    header #menu .brand {
+        width: 100%;
+        text-align: center;
+    }
+
+    header nav {
+        width: 100%;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    header #menu {
+        padding: 0;
+
+    }
+
+    header #menu .brand a.link-menu {
+        margin: auto;
+        width: 100%;
+    }
+
+}
+
+/***************************************************************************************************** MEDIA QUERIES 768px*/
+
+@media (max-width: 768px) {
+
+
+    header nav a {
+        padding: 0 5px;
+    }
+
+    header nav a.btn {
+        padding: 13px 30px;
+    }
+
+
+
+}
+
+/***************************************************************************************************** MEDIA QUERIES 560px*/
+
+@media (max-width: 560px) {}
+
+/***************************************************************************************************** MEDIA QUERIES 425px */
+
+@media (max-width: 425px) {
+
+
+
+    header {
+        padding: 0;
+    }
+
+    header .brand {
+        width: 70%;
+        margin: 0 0 0 2%;
+
+    }
+
+    .menu-toggle {
+        display: block;
+        padding: 0 5% 0 0;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    header nav a.btn {
+        display: none;
+    }
+
+    header nav a.icone {
+        display: block;
+    }
+
+    header nav {
+        background-color: #FFF;
+        height: 80px;
+        margin: 0;
+    }
+
+    header #menu {
+        margin: 0;
+    }
+
+    header .menu-toggle {
+        display: block;
+    }
+
+    header #menu .brand {
+        width: 80%;
+        margin: 15px 0;
+
+    }
+
+    header #menu .brand a.link-menu {
+        margin: 0;
+    }
+
+
+}
+
+/***************************************************************************************************** MEDIA QUERIES 320px */
+@media (max-width: 320px) {}
