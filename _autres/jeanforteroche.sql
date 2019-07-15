@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 12 juil. 2019 à 14:02
--- Version du serveur :  5.7.24
--- Version de PHP :  7.2.14
+-- Généré le :  lun. 15 juil. 2019 à 06:29
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,52 +25,118 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comments`
+-- Structure de la table `articles`
 --
 
-DROP TABLE IF EXISTS `comments`;
-CREATE TABLE IF NOT EXISTS `comments` (
+DROP TABLE IF EXISTS `articles`;
+CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `post_id` int(11) NOT NULL,
-  `author` varchar(40) NOT NULL,
-  `comment` text NOT NULL,
-  `comment_date` datetime NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `sentence` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `author_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `lien_image1` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `comments`
+-- Déchargement des données de la table `articles`
 --
 
-INSERT INTO `comments` (`id`, `post_id`, `author`, `comment`, `comment_date`) VALUES
-(1, 1, 'eee', 'eee', '2019-06-18 12:06:54'),
-(2, 1, 'vvv', 'vvv', '2019-06-17 18:33:32'),
-(3, 1, 'la modif ', 'vvv', '2019-06-17 18:15:07'),
-(4, 2, 'rgp', 'rgp', '2019-06-17 16:57:12'),
-(5, 2, 'test reussi 2', 'test', '2019-06-17 18:12:16');
+INSERT INTO `articles` (`id`, `title`, `sentence`, `content`, `date`, `author_id`, `category_id`, `lien_image1`) VALUES
+(1, 'Bienvenue sur le site !', 'Faisons connaissance… Je me présente, ainsi que le blog ! Qui se cache derrière l\'aventurier ?', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nobis aliter videtur, recte secusne, postea; Quod iam a me expectare noli. Sint ista Graecorum; Duo Reges: constructio interrete. Reguli reiciendam; Consequens enim est et post oritur, ut dixi. ', '2019-07-05 10:59:41', 1, 1, 'http://localhost/JeanForteroche/assets/images/alaska.jpg'),
+(3, 'Le voyage', 'L’Alaska c’est un lieu hors du temps, un endroit mythique, encore difficilement accessible et surtout un vrai paradis naturel.', 'Quid enim possumus hoc agere divinius? Duo Reges: constructio interrete. Ut optime, secundum naturam affectum esse possit. Num quid tale Democritus? Nummus in Croesi divitiis obscuratur, pars est tamen divitiarum. Faceres tu quidem, Torquate, haec omnia; ', '2019-07-05 14:38:14', 2, 2, 'http://localhost/JeanForteroche/assets/images/alaska-lac.jpg'),
+(2, 'Les préparatifs', 'On dit parfois que l’Alaska est le “voyage d’une vie”. C’est vrai en terme de paysages extraordinaires à découvrir, mais aussi en ce qui concerne la préparation.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nobis aliter videtur, recte secusne, postea; Quod iam a me expectare noli. Sint ista Graecorum; Duo Reges: constructio interrete. Reguli reiciendam; Consequens enim est et post oritur, ut dixi. ', '2019-07-05 11:02:10', 2, 2, 'http://localhost/JeanForteroche/assets/images/ski-alaska.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `posts`
+-- Structure de la table `authors`
 --
 
-DROP TABLE IF EXISTS `posts`;
-CREATE TABLE IF NOT EXISTS `posts` (
+DROP TABLE IF EXISTS `authors`;
+CREATE TABLE IF NOT EXISTS `authors` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `content` text NOT NULL,
-  `creation_date` datetime NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `posts`
+-- Déchargement des données de la table `authors`
 --
 
-INSERT INTO `posts` (`id`, `title`, `content`, `creation_date`) VALUES
-(1, 'mon premier post', 'ceci est mon premier post ', '2019-06-10 07:00:00'),
-(2, 'deuxieme post', 'ceci est mon deuxieme post', '2019-06-11 16:28:14');
+INSERT INTO `authors` (`id`, `firstname`, `lastname`) VALUES
+(1, 'Vincent', 'Admin'),
+(2, 'Jean', 'Forteroche');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`) VALUES
+(1, 'Préparatifs'),
+(2, 'Voyages'),
+(3, 'Astuces');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `members`
+--
+
+DROP TABLE IF EXISTS `members`;
+CREATE TABLE IF NOT EXISTS `members` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `members`
+--
+
+INSERT INTO `members` (`id`, `firstname`) VALUES
+(1, 'Admin'),
+(2, 'Franck');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `post`
+--
+
+DROP TABLE IF EXISTS `post`;
+CREATE TABLE IF NOT EXISTS `post` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `post` text NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `members_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `post`
+--
+
+INSERT INTO `post` (`id`, `post`, `date`, `members_id`) VALUES
+(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid est igitur, inquit, quod requiras? Quis est tam dissimile homini. Bonum incolumis acies: misera caecitas. ', '2019-07-05 11:50:15', 1),
+(2, 'Sumenda potius quam expetenda. Age sane, inquam. Nunc vides, quid faciat. Igitur ne dolorem quidem. \r\n', '2019-07-05 11:50:15', 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
