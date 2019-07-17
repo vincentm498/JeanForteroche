@@ -6,15 +6,14 @@ require('_functions/functions.php');
 
 $action = isset($_GET['action']);
 
-switch($action){
+switch ($action) {
 
 
-    case'article':
-    articleView();
-    break;
+    case 'article':
+        articleView();
+        break;
 
     default:
-    homeView();
-    break;
+        homeView();
+        break;
 }
-

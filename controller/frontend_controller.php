@@ -3,27 +3,31 @@
 // Chargement des classes
 require_once('model/Articles_model.php');
 
-function homeView(){
+function homeView()
+{
 
     $articlesModel = new \Blog\Model\Articles_model();
     $lastArticles = $articlesModel->getLastArticles();
     $articles = $articlesModel->getAllArticles();
-    
+
     // Affichage
     require 'view/home_view.php';
 }
 
-function articleView(){
+function articleView()
+{
 
     $articlesModel = new \Blog\Model\Articles_model();
     $articles = $articlesModel->getAllArticles();
     $article = $articlesModel->getArticle($_GET['id']);
-    
+
     // Affichage
     require 'view/article_view.php';
 }
 
+function mentionsView()
+{
 
-
-
-
+    // Affichage
+    require 'view/mentions_view.php';
+}
