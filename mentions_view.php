@@ -1,7 +1,7 @@
 <!-- template head -->
-<?php require 'include/head.php' ?>
+<?php require 'view/include/head.php' ?>
 <!-- template header -->
-<?php require 'include/header.php' ?>
+<?php require 'view/include/header.php' ?>
 
 <!-- Content -->
 <main>
@@ -112,4 +112,4 @@
     </section>
 </main>
 <!-- template footer -->
-<?php require 'include/footer.php' ?>
+<?php require 'view/include/footer.php' ?>

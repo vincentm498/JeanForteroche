@@ -14,6 +14,15 @@ function homeView()
     require 'view/home_view.php';
 }
 
+
+function romanView()
+{
+    $articlesModel = new \Blog\Model\Articles_model();
+    $articles = $articlesModel->getAllArticles();
+    // Affichage
+    require 'view/roman_view.php';
+}
+
 function articleView()
 {
 
@@ -23,11 +32,4 @@ function articleView()
 
     // Affichage
     require 'view/article_view.php';
-}
-
-function mentionsView()
-{
-
-    // Affichage
-    require 'view/mentions_view.php';
 }

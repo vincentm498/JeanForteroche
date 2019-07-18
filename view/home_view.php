@@ -46,7 +46,7 @@
                     <p>LLorem ipsum dolor sit amet, consectetur adipiscing elit. Hoc mihi cum tuo fratre convenit. Tuo vero id quidem, inquam, arbitratu. Ac tamen hic mallet non dolere. De hominibus dici non necesse est.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur post Tarentum ad Archytam? Si quae forte-possumus. Certe, nisi voluptatem tanti aestimaretis. </p>
                 </div>
-                <a class="btn" href="index.php?page=roman">Voir tous les chapitres</a>
+                <a class="btn" href="index.php?action=allArticle">Voir tous les chapitres</a>
             </div>
             <div class="conteneur-full-image">
 
