@@ -11,7 +11,7 @@
             pour l'Alaska</h1>
     </section>
 
-    <?php foreach ($articles as $article) : ?>
+    <?php foreach ($tests as $article) : ?>
         <section id="roman" class="chapitre">
             <div class="conteneur-full">
                 <div class="conteneur-full-text">
