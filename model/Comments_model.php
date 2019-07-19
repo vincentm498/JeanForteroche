@@ -11,9 +11,10 @@ class Comments_model extends Connect_model
     {
         $db = $this->dbConnect();
         $comments = $db->prepare('SELECT *
-        FROM post
-        WHERE post_id = ?
-        ORDER BY date_post
+        FROM post as p
+        INNER JOIN members as m ON m.id = p.members_id
+        WHERE p.post_id = ?
+        ORDER BY p.date_post
         ASC
         ');
         $comments->execute(array($postId));

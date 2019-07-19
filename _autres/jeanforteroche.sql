@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 15 juil. 2019 à 06:29
--- Version du serveur :  5.7.26
--- Version de PHP :  7.2.18
+-- Généré le :  ven. 19 juil. 2019 à 13:35
+-- Version du serveur :  5.7.24
+-- Version de PHP :  7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -53,50 +53,6 @@ INSERT INTO `articles` (`id`, `title`, `sentence`, `content`, `date`, `author_id
 -- --------------------------------------------------------
 
 --
--- Structure de la table `authors`
---
-
-DROP TABLE IF EXISTS `authors`;
-CREATE TABLE IF NOT EXISTS `authors` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(255) NOT NULL,
-  `lastname` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `authors`
---
-
-INSERT INTO `authors` (`id`, `firstname`, `lastname`) VALUES
-(1, 'Vincent', 'Admin'),
-(2, 'Jean', 'Forteroche');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `categories`
---
-
-DROP TABLE IF EXISTS `categories`;
-CREATE TABLE IF NOT EXISTS `categories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `categories`
---
-
-INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'Préparatifs'),
-(2, 'Voyages'),
-(3, 'Astuces');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `members`
 --
 
@@ -125,18 +81,21 @@ DROP TABLE IF EXISTS `post`;
 CREATE TABLE IF NOT EXISTS `post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `post` text NOT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_post` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `members_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `post`
 --
 
-INSERT INTO `post` (`id`, `post`, `date`, `members_id`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid est igitur, inquit, quod requiras? Quis est tam dissimile homini. Bonum incolumis acies: misera caecitas. ', '2019-07-05 11:50:15', 1),
-(2, 'Sumenda potius quam expetenda. Age sane, inquam. Nunc vides, quid faciat. Igitur ne dolorem quidem. \r\n', '2019-07-05 11:50:15', 2);
+INSERT INTO `post` (`id`, `post`, `date_post`, `members_id`, `post_id`) VALUES
+(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid est igitur, inquit, quod requiras? Quis est tam dissimile homini. Bonum incolumis acies: misera caecitas. ', '2019-07-05 11:50:15', 1, 1),
+(2, 'Sumenda potius quam expetenda. Age sane, inquam. Nunc vides, quid faciat. Igitur ne dolorem quidem. \r\n', '2019-07-05 11:50:15', 2, 2),
+(3, 'Test de post', '2019-07-19 11:19:39', 2, 1),
+(4, '<h1>Test de post 2</h1>', '2019-07-19 11:19:39', 1, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
