@@ -275,7 +275,7 @@ main #form .row input {
 
     padding: 20px 30px;
     border: 1px solid black;
-    width: calc(50% - 102px);
+    /* width: calc(50% - 102px); */
     font-size: 14px;
     margin: 10px 20px;
 }
@@ -308,7 +308,7 @@ main #form .btn {
 }
 
 .form-chap {
-    width: 40%;
+    width: 30%;
 }
 
 .comments {
@@ -324,10 +324,10 @@ main #form .btn {
     width: 100%;
 }
 
-.commentaires #form input[type="submit"] {
+/* .commentaires #form input[type="submit"] {
     width: calc(50% - 30px);
     margin: 10px;
-}
+} */
 
 .commentaires #form input.light {
     background-color: rgba(89, 89, 89, 0);

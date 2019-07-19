@@ -8,8 +8,6 @@ if (isset($_GET['action']))
 else
     $action = "Accueil";
 
-// $action = isset($_GET['action']);
-
 switch ($action) {
 
 

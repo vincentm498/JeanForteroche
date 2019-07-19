@@ -4,10 +4,10 @@ namespace Blog\Model;
 
 require_once("model/Connect_model.php");
 
-class Articles_model extends Connect_model{
-
-    // Renvoie la liste de tous les articles
-    function getAllArticles() 
+class Articles_model extends Connect_model
+{
+    //Renvoie la liste de tous les articles
+    public function getAllArticles()
     {
         $db = $this->dbConnect();
         $articles = $db->query('SELECT * FROM articles ORDER BY id ASC');
@@ -16,7 +16,7 @@ class Articles_model extends Connect_model{
     }
 
     // Renvoie la liste des deux derniers articles
-    function getLastArticles() 
+    public function getLastArticles()
     {
         $db = $this->dbConnect();
         $lastArticles = $db->query('SELECT * FROM articles ORDER BY id DESC LIMIT 2');
@@ -25,7 +25,7 @@ class Articles_model extends Connect_model{
     }
 
     // Renvoie l'article
-    function getArticle($id) 
+    public function getArticle($id)
     {
         $db = $this->dbConnect();
         $article = $db->prepare('SELECT * FROM articles WHERE id = ?');
@@ -33,5 +33,4 @@ class Articles_model extends Connect_model{
 
         return $article->fetch();
     }
-
 }
