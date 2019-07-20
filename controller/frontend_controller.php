@@ -38,3 +38,9 @@ function articleView()
     // Affichage
     require 'view/article_view.php';
 }
+
+function mentionsView()
+{
+    // Affichage
+    require 'view/mentions_view.php';
+}

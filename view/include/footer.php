@@ -25,7 +25,7 @@
             <a class="link-footer" href="#"><i class="fab fa-linkedin-in fa-2x"></i></a>
         </div>
         <div class="credits">
-            © 2019 JeanForteroche.fr - <a href="index.php?page=mentions">Mentions légales</a>
+            © 2019 JeanForteroche.fr - <a href="index.php?action=mentions">Mentions légales</a>
         </div>
     </div>
 

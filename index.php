@@ -23,6 +23,9 @@ switch ($action) {
         articleView();
         break;
 
+    case 'mentions':
+        mentionsView();
+        break;
 
     default:
         homeView();
