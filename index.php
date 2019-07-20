@@ -14,7 +14,7 @@ if (isset($_GET['action'])) {
 switch ($action) {
 
 
-
+        // Affichage des articles
     case 'allArticle':
         romanView();
         break;
@@ -23,6 +23,12 @@ switch ($action) {
         articleView();
         break;
 
+        // Envoi de données
+    case 'addComment':
+        addComment($_GET['id'], $_POST['member'], $_POST['comment']);
+        break;
+
+        // Affichage de pages simple
     case 'mentions':
         mentionsView();
         break;

@@ -21,4 +21,13 @@ class Comments_model extends Connect_model
 
         return $comments->fetchAll();
     }
+
+    public function postComment($articleId, $membreID, $comment)
+    {
+        $db = $this->dbConnect();
+        $comments = $db->prepare('INSERT INTO post(post_id, members_id, post, date_post) VALUES(?, ?, ?, NOW())');
+        $addcomment = $comments->execute(array($articleId, $membreID, $comment));
+
+        return $addcomment;
+    }
 }
