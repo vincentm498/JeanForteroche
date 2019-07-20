@@ -261,7 +261,8 @@ main #form .row {
     width: 100%;
 }
 
-main #form .row input {
+main #form .row input,
+main #form textarea {
 
     padding: 20px 30px;
     border: 1px solid black;
@@ -271,6 +272,12 @@ main #form .row input {
 
 main #form .btn {
     margin: auto;
+}
+
+main #form textarea {
+    resize: none;
+    width: 100%;
+    height: 80px;
 }
 
 /***************************************************************************************************** ARTICLES COMMENTAIRES*/
