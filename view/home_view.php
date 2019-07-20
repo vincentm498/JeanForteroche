@@ -26,18 +26,6 @@
         <?php endforeach; ?>
     </section>
 
-    <section id="author">
-        <div class="conteneur-1200">
-            <div class="conteneur-1200-image">
-            </div>
-            <div class="conteneur-1200-text">
-                <h2>Jean Forteroche</h2>
-                <p>LLorem ipsum dolor sit amet, consectetur adipiscing elit. Hoc mihi cum tuo fratre convenit. Tuo vero id quidem, inquam, arbitratu. Ac tamen hic mallet non dolere. De hominibus dici non necesse est.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur post Tarentum ad Archytam? Si quae forte-possumus. Certe, nisi voluptatem tanti aestimaretis. </p>
-            </div>
-        </div>
-    </section>
-
     <section id="roman">
         <div class="conteneur-full">
             <div class="conteneur-full-text">
@@ -54,30 +42,20 @@
         </div>
     </section>
 
-    <section id="contact">
+    <section id="author">
         <div class="conteneur-1200">
-            <h2>Contact</h2>
-            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Quod quidem iam fit etiam in Academia.</h3>
-            <form id="form" action="">
-                <div class="row">
-                    <input class="col-left" id="name" type="text" name="name" placeholder="Nom">
-                    <input class="col-right" id="firstname" type="text" name="firstname" placeholder="Prénom">
-                </div>
-                <div class="row">
-                    <input class="col-left" id="email" type="text" name="email" placeholder="E-mail">
-                    <input class="col-right" id="subject" type="text" name="subject" placeholder="Sujet">
-                </div>
-                <div class="row">
-                    <textarea id="message" name="message" cols="30" rows="10" placeholder="Message"></textarea>
-                </div>
-                <div class="form-send">
-                    <input type="checkbox" id="checkbox" name="checkbox">
-                    <label for="checkbox">En soumettant ce formulaire, j'accepte que les données personnelles saisies soient utilisées dans le cadre de ma demande d'information.</label>
-                </div>
-                <input class="btn" type="submit" value="Envoyer">
-            </form>
+            <div class="conteneur-1200-image">
+            </div>
+            <div class="conteneur-1200-text">
+                <h2>Jean Forteroche</h2>
+                <p>LLorem ipsum dolor sit amet, consectetur adipiscing elit. Hoc mihi cum tuo fratre convenit. Tuo vero id quidem, inquam, arbitratu. Ac tamen hic mallet non dolere. De hominibus dici non necesse est.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur post Tarentum ad Archytam? Si quae forte-possumus. Certe, nisi voluptatem tanti aestimaretis. </p>
+            </div>
         </div>
     </section>
+
+
+
 </main>
 <!-- template footer -->
 <?php require 'view/include/footer.php' ?>
