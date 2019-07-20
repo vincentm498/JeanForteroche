@@ -32,7 +32,7 @@
                 if (!empty($comments)) {
                     foreach ($comments as $index => $comment) : ?>
                         <div class="comment">
-                            <?= str_secur($comment['id']) ?>
+                            <?= str_secur($comment['firstname']) ?>
                             Le: <?= date_format(date_create($comment['date_post']), "d/m/Y H:i") ?>
                             <input class="btn" type="submit" value="Signaler">
                             <p><?= str_secur($comment['post']) ?></p>
