@@ -19,7 +19,7 @@ class Comments_model extends Connect_model
         ');
         $comments->execute(array($postId));
 
-        return $comments->fetchAll();
+        return $comments;
     }
 
     public function postComment($articleId, $membreID, $comment)

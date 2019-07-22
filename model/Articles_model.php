@@ -12,7 +12,7 @@ class Articles_model extends Connect_model
         $db = $this->dbConnect();
         $articles = $db->query('SELECT * FROM articles ORDER BY id ASC');
 
-        return $articles;
+        return $articles->fetchAll();
     }
 
     // Renvoie la liste des deux derniers articles
@@ -21,7 +21,7 @@ class Articles_model extends Connect_model
         $db = $this->dbConnect();
         $lastArticles = $db->query('SELECT * FROM articles ORDER BY id DESC LIMIT 2');
 
-        return $lastArticles;
+        return $lastArticles->fetchAll();
     }
 
     // Renvoie l'article

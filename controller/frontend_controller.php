@@ -20,7 +20,7 @@ function romanView()
 {
     $articlesModel = new \Blog\Model\Articles_model();
     $articles = $articlesModel->getAllArticles();
-    $tests = $articlesModel->getAllArticles();
+
     // Affichage
     require 'view/roman_view.php';
 }
