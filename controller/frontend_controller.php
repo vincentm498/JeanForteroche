@@ -57,3 +57,16 @@ function addComment($articleId, $membreID, $comment)
         header('Location: index.php?action=article&id=' . $articleId);
     }
 }
+
+function addMember($articleId)
+{
+    $commentsModel = new \Blog\Model\Comments_model();
+
+    $addMember = $commentsModel->addMember($articleId);
+
+    if ($addMember === false) {
+        throw new Exception('Impossible d\'ajouter le membre !');
+    } else {
+        header('Location: index.php?action=article&id=' . $articleId);
+    }
+}

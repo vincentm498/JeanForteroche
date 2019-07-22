@@ -28,6 +28,10 @@ switch ($action) {
         addComment($_GET['id'], $_POST['member'], $_POST['comment']);
         break;
 
+    case 'addMember':
+        addMember($_GET['id'], $_POST['member']);
+        break;
+
         // Affichage de pages simple
     case 'mentions':
         mentionsView();

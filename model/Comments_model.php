@@ -19,15 +19,26 @@ class Comments_model extends Connect_model
         ');
         $comments->execute(array($postId));
 
-        return $comments;
+        return $comments->fetchAll();
     }
 
+    // Ajoute un commentaire dans l'article
     public function postComment($articleId, $membreID, $comment)
     {
         $db = $this->dbConnect();
         $comments = $db->prepare('INSERT INTO post(post_id, members_id, post, date_post) VALUES(?, ?, ?, NOW())');
         $addcomment = $comments->execute(array($articleId, $membreID, $comment));
 
-        return $addcomment;
+        return $addcomment->fetch();
+    }
+
+    // Ajoute un membre
+    public function addMember()
+    {
+        $db = $this->dbConnect();
+        $member = $db->prepare('INSERT INTO members(firstname) VALUES(?)');
+        $addmember = $member->execute(array());
+
+        return $addmember->fetch();
     }
 }
