@@ -58,15 +58,17 @@ function addComment($articleId, $membreID, $comment)
     }
 }
 
-function addMember($articleId)
-{
-    $commentsModel = new \Blog\Model\Comments_model();
+// function addMember($articleId, $firstname, $password)
+// {
+//     $commentsModel = new \Blog\Model\Comments_model();
 
-    $addMember = $commentsModel->addMember($articleId);
+//     $addMember = $commentsModel->addMember($articleId, $firstname, $password);
 
-    if ($addMember === false) {
-        throw new Exception('Impossible d\'ajouter le membre !');
-    } else {
-        header('Location: index.php?action=article&id=' . $articleId);
-    }
-}
+//     if ($addMember === false) {
+//         echo 'erreur';
+//         //throw new Exception('Impossible d\'ajouter le membre !');
+//     } else {
+//         echo 'ajout';
+//         //header('Location: index.php?action=article&id=' . $firstname);
+//     }
+// }
