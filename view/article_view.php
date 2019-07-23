@@ -18,7 +18,7 @@
         <h2>COMMENTAIRES</h2>
         <p>Pour déposer un commentaire, vous devez être connecté</p>
         <div class="commentaires">
-            <?php ?>
+
             <div class="form-chap">
                 <!-- FORMULAIRE CONNEXION -->
                 <form id="form" action="index.php?action=addMember" method="post">
@@ -26,12 +26,16 @@
                         <input type="text" name="pseudo" id="pseudo" placeholder="Votre peudo">
                         <input type="email" name="email" id="email" placeholder="Votre email">
                         <input type="password" name="pass" id="pass" placeholder="Mots de passe">
-                        <!-- <input type="password" name="password" id="password" placeholder="Confirmation du mot de passe"> -->
+                        <input type="password" name="verification_pass" id="verification_pass" placeholder="Confirmation du mot de passe">
                         <input class="btn light" name="envoi" type="submit" value="Connexion">
                         <!-- <label for="inscription">Pas encore inscrit?</label>
                         <input class="btn" name="inscription" type="submit" value="Inscription"> -->
                     </div>
                 </form>
+                <?php
+                $error;
+
+                ?>
                 <!-- FORMULAIRE MESSAGE -->
                 <!-- <form id="form" index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">
                     <div class="row">

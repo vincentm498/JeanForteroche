@@ -58,34 +58,51 @@ function addComment($articleId, $membreID, $comment)
     }
 }
 
-function addMember($pass)
+function addMember($pseudo, $pass_hache, $email)
 {
-
     $commentsModel = new \Blog\Model\Comments_model();
 
     if (isset($_POST['envoi'])) { // si formulaire soumis
+
+        $pseudo = str_secur($_POST['pseudo']);
+        $pass = str_secur($_POST['pass']);
+        $email = str_secur($_POST['email']);
+        $verification_pass = str_secur($_POST['verification_pass']);
+        $error = 'test';
+
         // on teste la déclaration de nos variables
-        if (!empty($_POST['pseudo']) &&  !empty($_POST['pass']) &&  !empty($_POST['email'])) {
-            echo $_POST['pseudo'];
-            echo $_POST['pass'];
-            echo $_POST['email'];
-            // Hachage du mot de passe
-            $pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
-            //echo $pass_hache;
+        if (!empty($pseudo) &&  !empty($pass) &&  !empty($email) &&  !empty($verification_pass)) {
+
+            // Test de la correspondance du mots de passe
+            if ($pass == $verification_pass) {
+
+                //Test de la validité de l'email
+                if (filter_var($email, FILTER_VALIDATE_EMAIL, FILTER_FLAG_PATH_REQUIRED)) {
+
+                    //Test du membre déjà ajouté
+                    if (1 == 1) {
+                        // Hachage du mot de passe
+                        $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
+
+                        $addMember = $commentsModel->addMember($pseudo, $pass_hache, $email);
+
+                        if ($addMember === false) {
+                            throw new Exception('Impossible d\'ajouter le membre !');
+                        } else {
+
+                            header('Location: index.php?action=article&id=' . 2);
+                        }
+                    } else {
+                        echo "Pseudo déja utilisé";
+                    }
+                } else {
+                    echo "Adresse eMail invalide";
+                }
+            } else {
+                echo "Le mots de passe n'est pas identique";
+            }
         } else {
             echo "Le formulaire n'est pas correctement rempli ";
         }
     }
-
-
-
-    //     
-
-    //     if ($addMember === false) {
-    //         echo 'erreur';
-    //         //throw new Exception('Impossible d\'ajouter le membre !');
-    //     } else {
-    //         echo 'ajout';
-    //         //header('Location: index.php?action=article&id=' . $firstname);
-    //    }
 }

@@ -33,12 +33,12 @@ class Comments_model extends Connect_model
     }
 
     // Ajoute un membre
-    // public function addMember($articleId, $firstname, $password)
-    // {
-    //     $db = $this->dbConnect();
-    //     $member = $db->prepare('INSERT INTO members(firstname, password_member) VALUES(?, ?, ?)');
-    //     $addmember = $member->execute(array($articleId, $firstname, $password));
+    public function addMember($pseudo, $pass_hache, $email)
+    {
+        $db = $this->dbConnect();
+        $member = $db->prepare('INSERT INTO members(pseudo, pass, email, date_inscription, id_groupe) VALUES(?, ?, ?, NOW(), 2)');
+        $addmember = $member->execute(array($pseudo, $pass_hache, $email));
 
-    //     return $addmember;
-    // }
+        return $addmember;
+    }
 }
