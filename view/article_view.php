@@ -21,12 +21,13 @@
             <?php ?>
             <div class="form-chap">
                 <!-- FORMULAIRE CONNEXION -->
-                <form id="form" action="index.php?action=addMember&amp;id=<?= $article['id'] ?>" method="post">
+                <form id="form" action="index.php?action=addMember" method="post">
                     <div class="row">
-                        <input type="text" name="firstname" id="firstname" placeholder="Votre peudo">
-                        <input type="password" name="password" id="password" placeholder="Mots de passe">
+                        <input type="text" name="pseudo" id="pseudo" placeholder="Votre peudo">
                         <input type="email" name="email" id="email" placeholder="Votre email">
-                        <input class="btn light" type="submit" value="Connexion">
+                        <input type="password" name="pass" id="pass" placeholder="Mots de passe">
+                        <!-- <input type="password" name="password" id="password" placeholder="Confirmation du mot de passe"> -->
+                        <input class="btn light" name="envoi" type="submit" value="Connexion">
                         <!-- <label for="inscription">Pas encore inscrit?</label>
                         <input class="btn" name="inscription" type="submit" value="Inscription"> -->
                     </div>
@@ -46,7 +47,7 @@
                 if (!empty($comments)) {
                     foreach ($comments as $index => $comment) : ?>
                         <div class="comment">
-                            <?= str_secur($comment['firstname']) ?>
+                            <?= str_secur($comment['pseudo']) ?>
                             Le: <?= date_format(date_create($comment['date_post']), "d/m/Y H:i") ?>
                             <input class="btn" type="submit" value="Signaler">
                             <p><?= str_secur($comment['post']) ?></p>

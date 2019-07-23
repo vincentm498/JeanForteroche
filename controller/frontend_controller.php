@@ -58,17 +58,34 @@ function addComment($articleId, $membreID, $comment)
     }
 }
 
-// function addMember($articleId, $firstname, $password)
-// {
-//     $commentsModel = new \Blog\Model\Comments_model();
+function addMember($pass)
+{
 
-//     $addMember = $commentsModel->addMember($articleId, $firstname, $password);
+    $commentsModel = new \Blog\Model\Comments_model();
 
-//     if ($addMember === false) {
-//         echo 'erreur';
-//         //throw new Exception('Impossible d\'ajouter le membre !');
-//     } else {
-//         echo 'ajout';
-//         //header('Location: index.php?action=article&id=' . $firstname);
-//     }
-// }
+    if (isset($_POST['envoi'])) { // si formulaire soumis
+        // on teste la déclaration de nos variables
+        if (!empty($_POST['pseudo']) &&  !empty($_POST['pass']) &&  !empty($_POST['email'])) {
+            echo $_POST['pseudo'];
+            echo $_POST['pass'];
+            echo $_POST['email'];
+            // Hachage du mot de passe
+            $pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+            //echo $pass_hache;
+        } else {
+            echo "Le formulaire n'est pas correctement rempli ";
+        }
+    }
+
+
+
+    //     
+
+    //     if ($addMember === false) {
+    //         echo 'erreur';
+    //         //throw new Exception('Impossible d\'ajouter le membre !');
+    //     } else {
+    //         echo 'ajout';
+    //         //header('Location: index.php?action=article&id=' . $firstname);
+    //    }
+}
