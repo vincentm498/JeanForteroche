@@ -68,7 +68,8 @@ function addMember($pseudo, $pass_hache, $email)
         $pass = str_secur($_POST['pass']);
         $email = str_secur($_POST['email']);
         $verification_pass = str_secur($_POST['verification_pass']);
-        $error = 'test';
+        $error = '';
+
 
         // on teste la déclaration de nos variables
         if (!empty($pseudo) &&  !empty($pass) &&  !empty($email) &&  !empty($verification_pass)) {
@@ -81,28 +82,30 @@ function addMember($pseudo, $pass_hache, $email)
 
                     //Test du membre déjà ajouté
                     if (1 == 1) {
+
                         // Hachage du mot de passe
                         $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
 
-                        $addMember = $commentsModel->addMember($pseudo, $pass_hache, $email);
+                        // $addMember = $commentsModel->addMember($pseudo, $pass_hache, $email);
+                        $error = "Votre compte a été créé";
+                        require 'view/article_view.php';
 
-                        if ($addMember === false) {
-                            throw new Exception('Impossible d\'ajouter le membre !');
-                        } else {
+                        // if ($addMember === false) {
+                        //     throw new Exception('Impossible d\'ajouter le membre !');
+                        // } else {
+                        //header('Location: index.php?action=article&id=' . 2);
 
-                            header('Location: index.php?action=article&id=' . 2);
-                        }
+                        // }
                     } else {
-                        echo "Pseudo déja utilisé";
+                        $error = "Pseudo déja utilisé";
                     }
-                } else {
-                    echo "Adresse eMail invalide";
                 }
             } else {
-                echo "Le mots de passe n'est pas identique";
+                $error = "Le mots de passe n'est pas identique";
             }
         } else {
-            echo "Le formulaire n'est pas correctement rempli ";
+            $error = "Le formulaire n'est pas correctement rempli ";
         }
+        header('Location: index.php?action=article&id=' . 2);
     }
 }

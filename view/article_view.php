@@ -27,14 +27,14 @@
                         <input type="email" name="email" id="email" placeholder="Votre email">
                         <input type="password" name="pass" id="pass" placeholder="Mots de passe">
                         <input type="password" name="verification_pass" id="verification_pass" placeholder="Confirmation du mot de passe">
-                        <input class="btn light" name="envoi" type="submit" value="Connexion">
+                        <input class="btn light" name="envoi" type="submit" value="Inscription">
                         <!-- <label for="inscription">Pas encore inscrit?</label>
                         <input class="btn" name="inscription" type="submit" value="Inscription"> -->
                     </div>
                 </form>
-                <?php
-                $error;
-
+                <?php if (!empty($error)) { ?>
+                    <div class="error">erreur</div>
+                <?php }
                 ?>
                 <!-- FORMULAIRE MESSAGE -->
                 <!-- <form id="form" index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">
