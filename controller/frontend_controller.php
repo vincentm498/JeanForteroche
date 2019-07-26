@@ -68,8 +68,6 @@ function addMember($articleId, $pseudo, $pass_hache, $email, $error)
         $pass = str_secur($_POST['pass']);
         $email = str_secur($_POST['email']);
         $verification_pass = str_secur($_POST['verification_pass']);
-        $listeMembres = array();
-        $listeMembres_mail = array();
 
         // on teste la déclaration de nos variables
         if (!empty($pseudo) &&  !empty($pass) &&  !empty($email) &&  !empty($verification_pass)) {
@@ -80,29 +78,15 @@ function addMember($articleId, $pseudo, $pass_hache, $email, $error)
                 //Test de la validité de l'email
                 if (filter_var($email, FILTER_VALIDATE_EMAIL, FILTER_FLAG_PATH_REQUIRED)) {
 
-                    $pseudo_verif = $commentsModel->getAllMembers();
-
-                    foreach ($pseudo_verif as $tableauMembres) {
-                        $listeMembres[] = $tableauMembres['pseudo'];
-                        $listeMembres_mail[] = $tableauMembres['email'];
-                    }
-                    // var_dump($listeMembres);
-                    // var_dump($listeMembres_mail);
-
-                    // if ((in_array("truc", $listeMembres)) || (in_array("admin@admin.fr", $listeMembres_mail))) {
-                    //     echo 'oui';
-                    // } else {
-                    //     echo 'non';
-                    // }
-                    // exit;
-
                     //Test du membre déjà ajouté
-                    if ((!in_array($pseudo, $listeMembres)) || (!in_array($email, $listeMembres_mail))) {
+                    $pseudo_verif = $commentsModel->getMemberInscription($pseudo, $email);
+
+                    if (count($pseudo_verif) == 0) {
 
                         // Hachage du mot de passe
                         $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
 
-                        //$addMember = $commentsModel->addMember($pseudo, $pass_hache, $email);
+                        $addMember = $commentsModel->addMember($pseudo, $pass_hache, $email);
                         $error = "Votre compte à été créé";
                         header('Location: index.php?action=article&id=' . $articleId . '&message=' . $error);
                     } else {
