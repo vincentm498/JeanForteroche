@@ -29,7 +29,7 @@ class Comments_model extends Connect_model
         $comments = $db->prepare('INSERT INTO post(post_id, members_id, post, date_post) VALUES(?, ?, ?, NOW())');
         $addcomment = $comments->execute(array($articleId, $membreID, $comment));
 
-        return $addcomment->fetch();
+        return $addcomment;
     }
 
     // Ajoute un membre
@@ -40,5 +40,14 @@ class Comments_model extends Connect_model
         $addmember = $member->execute(array($pseudo, $pass_hache, $email));
 
         return $addmember;
+    }
+
+    // Renvoie la liste de tous les membres
+    public function getAllMembers()
+    {
+        $db = $this->dbConnect();
+        $members = $db->query('SELECT pseudo, email FROM members');
+
+        return $members->fetchAll();
     }
 }

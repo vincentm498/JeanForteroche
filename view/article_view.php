@@ -20,24 +20,25 @@
         <div class="commentaires">
 
             <div class="form-chap">
+
                 <!-- FORMULAIRE CONNEXION -->
-                <form id="form" action="index.php?action=addMember" method="post">
+                <form id="form" action="index.php?action=addMember&amp;id=<?= $article['id'] ?>" method="post">
                     <div class="row">
                         <input type="text" name="pseudo" id="pseudo" placeholder="Votre peudo">
                         <input type="email" name="email" id="email" placeholder="Votre email">
                         <input type="password" name="pass" id="pass" placeholder="Mots de passe">
                         <input type="password" name="verification_pass" id="verification_pass" placeholder="Confirmation du mot de passe">
-                        <input class="btn light" name="envoi" type="submit" value="Inscription">
-                        <!-- <label for="inscription">Pas encore inscrit?</label>
-                        <input class="btn" name="inscription" type="submit" value="Inscription"> -->
+                        <input class="btn light" name="envoi" type="submit" value="Connexion">
+                        <?php
+                        if (isset($_GET['message'])) {
+                            echo $_GET['message'];
+                        }
+                        ?>
                     </div>
                 </form>
-                <?php if (!empty($error)) { ?>
-                    <div class="error">erreur</div>
-                <?php }
-                ?>
+
                 <!-- FORMULAIRE MESSAGE -->
-                <!-- <form id="form" index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">
+                <!-- <form id="form" action="index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">
                     <div class="row">
                         <input type="text" id="member" name="member" />
                         <textarea id="comment" name="comment"></textarea>

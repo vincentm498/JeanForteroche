@@ -29,7 +29,7 @@ switch ($action) {
         break;
 
     case 'addMember':
-        addMember($_POST['pseudo'], $_POST['pass'], $_POST['verification_pass'], $_POST['email']);
+        addMember($_GET['id'], $_POST['pseudo'], $_POST['pass'], $_POST['verification_pass'], $_POST['email']);
         break;
 
         // Affichage de pages simple
