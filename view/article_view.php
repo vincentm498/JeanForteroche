@@ -37,8 +37,6 @@
                     </div>
                 </form>
 
-
-
                 <!-- FORMULAIRE MESSAGE -->
                 <!-- <form id="form" action="index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">
                     <div class="row">

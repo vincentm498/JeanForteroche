@@ -2,6 +2,8 @@
 ini_set('display_errors', 1);
 //inclusion du controlleur
 require('controller/frontend_controller.php');
+require('controller/comments_controller.php');
+require('controller/members_controller.php');
 require('_functions/functions.php');
 
 $action = "";
