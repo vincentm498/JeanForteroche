@@ -1,6 +1,7 @@
 <?php
 
-//namespace Blog\Model;
+namespace Blog;
+
 
 require_once("class/Connect.php");
 

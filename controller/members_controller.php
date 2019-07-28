@@ -5,7 +5,7 @@ require_once('class/Members.php');
 
 function addMember($articleId, $pseudo, $pass_hache, $email, $error)
 {
-    $commentsModel = new Members();
+    $commentsModel = new \Blog\Members();
 
     if (isset($_POST['envoi'])) { // si formulaire soumis
 

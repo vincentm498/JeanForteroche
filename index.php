@@ -1,6 +1,8 @@
 <?php
-ini_set('display_errors', 1);
+// Inclusion du namespace
+use \Blog\Autoloader;
 
+ini_set('display_errors', 1);
 
 //inclusion des fichiers principaux
 require('controller/frontend_controller.php');

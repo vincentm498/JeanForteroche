@@ -14,7 +14,7 @@
 
 function homeView()
 {
-    $articlesModel = new Articles();
+    $articlesModel = new \Blog\Articles();
     $lastArticles = $articlesModel->getLastArticles();
     $articles = $articlesModel->getAllArticles();
 
@@ -24,7 +24,7 @@ function homeView()
 
 function romanView()
 {
-    $articlesModel = new Articles();
+    $articlesModel = new \Blog\Articles();
     $articles = $articlesModel->getAllArticles();
 
     // Affichage
@@ -34,11 +34,11 @@ function romanView()
 function articleView()
 {
 
-    $articlesModel = new Articles();
+    $articlesModel = new \Blog\Articles();
     $articles = $articlesModel->getAllArticles();
     $article = $articlesModel->getArticle($_GET['id']);
 
-    $commentsModel = new Comments();
+    $commentsModel = new \Blog\Comments();
     $comments = $commentsModel->getAllComments($_GET['id']);
 
     // Affichage

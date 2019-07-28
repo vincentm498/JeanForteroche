@@ -5,7 +5,7 @@ require_once('class/Comments.php');
 
 function addComment($articleId, $membreID, $comment)
 {
-    $commentsModel = new Comments();
+    $commentsModel = new \Blog\Comments();
 
     $addcomment = $commentsModel->postComment($articleId, $membreID, $comment);
 
