@@ -1,10 +1,10 @@
 <?php
 
-namespace Blog\Model;
+//namespace Blog\Model;
 
-require_once("model/Connect_model.php");
+require_once("class/Connect.php");
 
-class Articles_model extends Connect_model
+class Articles extends Connect
 {
     //Renvoie la liste de tous les articles
     public function getAllArticles()

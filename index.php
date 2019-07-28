@@ -1,10 +1,14 @@
 <?php
 ini_set('display_errors', 1);
-//inclusion du controlleur
+
+
+//inclusion des fichiers principaux
 require('controller/frontend_controller.php');
 require('controller/comments_controller.php');
 require('controller/members_controller.php');
 require('_functions/functions.php');
+require('class/Autoloader.php');
+Autoloader::register();
 
 $action = "";
 
@@ -12,9 +16,7 @@ if (isset($_GET['action'])) {
     $action = $_GET['action'];
 }
 
-
 switch ($action) {
-
 
         // Affichage des articles
     case 'allArticle':

@@ -1,10 +1,10 @@
 <?php
 
-namespace Blog\Model;
+//namespace Blog\Model;
 
-require_once("model/Connect_model.php");
+require_once("class/Connect.php");
 
-class Members_model extends Connect_model
+class Members extends Connect
 {
     // Ajoute un membre
     public function addMember($pseudo, $pass_hache, $email)

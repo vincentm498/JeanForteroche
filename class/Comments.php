@@ -1,10 +1,10 @@
 <?php
 
-namespace Blog\Model;
+//namespace Blog\Model;
 
-require_once("model/Connect_model.php");
+require_once("class/Connect.php");
 
-class Comments_model extends Connect_model
+class Comments extends Connect
 {
     // Renvoie la liste de tous les commentaires de l'article
     public function getAllComments($postId)
@@ -27,7 +27,6 @@ class Comments_model extends Connect_model
     {
         $db = $this->dbConnect();
         $comments = $db->prepare('INSERT INTO post(post_id, members_id, post, date_post) VALUES(?, ?, ?, NOW())');
-        // $addcomment = $comments->execute(array($articleId, $membreID, $comment));
         $comments->execute(array($articleId, $membreID, $comment));
         return $comments->fetchAll();
     }

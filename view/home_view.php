@@ -2,7 +2,6 @@
 <?php require 'view/include/head.php' ?>
 <!-- template header -->
 <?php require 'view/include/header.php' ?>
-
 <!-- Content -->
 <main>
     <section id="header">

@@ -1,11 +1,11 @@
 <?php
 
 // Chargement des classes
-require_once('model/Members_model.php');
+require_once('class/Members.php');
 
 function addMember($articleId, $pseudo, $pass_hache, $email, $error)
 {
-    $commentsModel = new \Blog\Model\Members_model();
+    $commentsModel = new Members();
 
     if (isset($_POST['envoi'])) { // si formulaire soumis
 

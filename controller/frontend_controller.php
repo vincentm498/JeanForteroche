@@ -1,12 +1,20 @@
 <?php
 
-// Chargement des classes
-require_once('model/Articles_model.php');
+
+// function homeView()
+// {
+
+//     $articlesModel = new \Blog\Model\Articles_model();
+//     $lastArticles = $articlesModel->getLastArticles();
+//     $articles = $articlesModel->getAllArticles();
+
+//     // Affichage
+//     require 'view/home_view.php';
+// }
 
 function homeView()
 {
-
-    $articlesModel = new \Blog\Model\Articles_model();
+    $articlesModel = new Articles();
     $lastArticles = $articlesModel->getLastArticles();
     $articles = $articlesModel->getAllArticles();
 
@@ -14,10 +22,9 @@ function homeView()
     require 'view/home_view.php';
 }
 
-
 function romanView()
 {
-    $articlesModel = new \Blog\Model\Articles_model();
+    $articlesModel = new Articles();
     $articles = $articlesModel->getAllArticles();
 
     // Affichage
@@ -27,11 +34,11 @@ function romanView()
 function articleView()
 {
 
-    $articlesModel = new \Blog\Model\Articles_model();
+    $articlesModel = new Articles();
     $articles = $articlesModel->getAllArticles();
     $article = $articlesModel->getArticle($_GET['id']);
 
-    $commentsModel = new \Blog\Model\Comments_model();
+    $commentsModel = new Comments();
     $comments = $commentsModel->getAllComments($_GET['id']);
 
     // Affichage

@@ -1,11 +1,11 @@
 <?php
 
 // Chargement des classes
-require_once('model/Comments_model.php');
+require_once('class/Comments.php');
 
 function addComment($articleId, $membreID, $comment)
 {
-    $commentsModel = new \Blog\Model\Comments_model();
+    $commentsModel = new Comments();
 
     $addcomment = $commentsModel->postComment($articleId, $membreID, $comment);
 
