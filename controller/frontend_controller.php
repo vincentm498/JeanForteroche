@@ -1,17 +1,5 @@
 <?php
 
-
-// function homeView()
-// {
-
-//     $articlesModel = new \Blog\Model\Articles_model();
-//     $lastArticles = $articlesModel->getLastArticles();
-//     $articles = $articlesModel->getAllArticles();
-
-//     // Affichage
-//     require 'view/home_view.php';
-// }
-
 function homeView()
 {
     $articlesModel = new \Blog\Articles();
