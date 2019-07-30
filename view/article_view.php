@@ -1,7 +1,8 @@
-<!-- template head -->
-<?php require 'view/include/head.php' ?>
-<!-- template header -->
-<?php require 'view/include/header.php' ?>
+<?php
+require 'view/include/head.php';
+require 'view/include/header.php';
+session_start();
+?>
 
 <!-- Content -->
 <main>
@@ -31,12 +32,8 @@
                         <input class="btn light" name="envoi" type="submit" value="Inscription">
                     </div>
                 </form>
-                <?php
-                session_start();
-                print_r($_SESSION);
-
-                ?>
-
+                <pre><?php print_r($_SESSION); ?>
+                </pre>
                 <!-- FORMULAIRE MESSAGE -->
                 <!-- <form id="form" action="index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">
                     <div class="row">

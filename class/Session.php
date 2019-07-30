@@ -17,4 +17,9 @@ class Session extends Connect
             "message"   => $message
         ];
     }
+
+    public function showFlash()
+    {
+        if (!empty($_SESSION)) { }
+    }
 }
