@@ -29,13 +29,13 @@
                         <input type="password" name="pass" id="pass" placeholder="Mots de passe">
                         <input type="password" name="verification_pass" id="verification_pass" placeholder="Confirmation du mot de passe">
                         <input class="btn light" name="envoi" type="submit" value="Inscription">
-                        <?php
-                        if (isset($_GET['message'])) {
-                            echo $_GET['message'];
-                        }
-                        ?>
                     </div>
                 </form>
+                <?php
+                session_start();
+                print_r($_SESSION);
+
+                ?>
 
                 <!-- FORMULAIRE MESSAGE -->
                 <!-- <form id="form" action="index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">

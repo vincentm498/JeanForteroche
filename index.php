@@ -5,11 +5,9 @@ use \Blog\Autoloader;
 ini_set('display_errors', 1);
 
 //inclusion des fichiers principaux
-require('controller/frontend_controller.php');
-require('controller/comments_controller.php');
-require('controller/members_controller.php');
-require('_functions/functions.php');
-require('class/Autoloader.php');
+require "include.php";
+
+
 Autoloader::register();
 
 $action = "";
@@ -17,6 +15,9 @@ $action = "";
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
 }
+
+
+if (isset($_POST['login_success'])) { }
 
 switch ($action) {
 

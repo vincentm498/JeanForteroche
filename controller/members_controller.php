@@ -3,9 +3,12 @@
 // Chargement des classes
 require_once('class/Members.php');
 
+
+
 function addMember($articleId, $pseudo, $pass_hache, $email, $error)
 {
     $commentsModel = new \Blog\Members();
+    $session = new \Blog\Session(); //Lance la session
 
     if (isset($_POST['envoi'])) { // si formulaire soumis
 
@@ -31,24 +34,24 @@ function addMember($articleId, $pseudo, $pass_hache, $email, $error)
                         // Hachage du mot de passe
                         $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
 
-                        $addMember = $commentsModel->addMember($pseudo, $pass_hache, $email);
-                        $error = "Votre compte à été créé";
-                        header('Location: index.php?action=article&id=' . $articleId . '&message=' . $error);
+                        //$addMember = $commentsModel->addMember($pseudo, $pass_hache, $email);
+                        $session->setFlash("Votre compte a été créé avec succès", "green");
+                        header('Location: index.php?action=article&id=' . $articleId);
                     } else {
-                        $error = "Pseudo ou mail déja utilisés";
-                        header('Location: index.php?action=article&id=' . $articleId . '&message=' . $error);
+                        $session->setFlash("Pseudo ou mail déja utilisés", "red");
+                        header('Location: index.php?action=article&id=' . $articleId);
                     }
                 } else {
-                    $error = "Votre email n'est pas correct";
-                    header('Location: index.php?action=article&id=' . $articleId . '&message=' . $error);
+                    $session->setFlash("Votre email n'est pas correct", "red");
+                    header('Location: index.php?action=article&id=' . $articleId);
                 }
             } else {
-                $error = "Le mots de passe n'est pas identique";
-                header('Location: index.php?action=article&id=' . $articleId . '&message=' . $error);
+                $session->setFlash("Le mots de passe n'est pas identique", "red");
+                header('Location: index.php?action=article&id=' . $articleId);
             }
         } else {
-            $error = "Le formulaire n'est pas correctement rempli";
-            header('Location: index.php?action=article&id=' . $articleId . '&message=' . $error);
+            $session->setFlash("Veuillez remplir tous les champs", "red");
+            header('Location: index.php?action=article&id=' . $articleId);
         }
     }
 }
