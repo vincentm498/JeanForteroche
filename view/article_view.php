@@ -32,10 +32,14 @@ session_start();
                         <input type="password" name="verification_pass" id="verification_pass" placeholder="Confirmation du mot de passe">
                         <input class="btn light" name="envoi" type="submit" value="Inscription">
                     </div>
+                    <div class="row error">
+                        <?php
+
+                        echo $_SESSION['flash']['message'];
+                        ?>
+                    </div>
                 </form>
-                <?php print_r($_SESSION['flash']['message']);
-                echo $test;
-                echo $error; ?>
+
 
                 <!-- FORMULAIRE MESSAGE -->
                 <!-- <form id="form" action="index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">

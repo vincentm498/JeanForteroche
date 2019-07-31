@@ -45,6 +45,12 @@ header .menuHamburger:checked~.menu {
     align-items: center;
 }
 
+header nav {
+    width: initial;
+    background-color: inherit;
+    box-shadow: none
+}
+
 header nav a.icone {
     display: none;
 }

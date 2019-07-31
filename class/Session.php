@@ -10,10 +10,9 @@ class Session extends Connect
         session_start();
     }
 
-    public function setFlash($message, $color = "white")
+    public function setFlash($message)
     {
         $_SESSION['flash'] = [
-            "color"     => $color,
             "message"   => $message
         ];
     }
@@ -22,7 +21,7 @@ class Session extends Connect
     {
         if (!empty($_SESSION['flash'])) { ?>
             <script>
-                alert('coucou');
+                Materialize.toast();
             </script>
         <?php
         }

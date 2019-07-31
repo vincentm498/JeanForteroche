@@ -68,6 +68,17 @@ main #roman {
     margin-top: -80px;
 }
 
+::before,
+::after {
+    -webkit-box-sizing: initial;
+    box-sizing: initial;
+}
+
+
+.btn {
+    display: initial
+}
+
 /***************************************************************************************************** HEADER*/
 
 main #header {
@@ -130,7 +141,7 @@ main #sub-header .chapitre {
 }
 
 main #sub-header .conteneur {
-    width: 45%;
+    width: 50%;
     background-color: #EFEFEF;
 }
 
@@ -264,7 +275,7 @@ main #form .row {
 main #form .row input,
 main #form textarea {
 
-    padding: 20px 30px;
+    padding: 5px 30px;
     border: 1px solid black;
     font-size: 14px;
     margin: 10px 20px;
@@ -313,6 +324,7 @@ main #form textarea {
 .commentaires #form input.light {
     background-color: rgba(89, 89, 89, 0);
     color: rgb(89, 89, 89);
+    height: 50px;
 }
 
 /***************************************************************************************************** MEDIA QUERIES 1024px*/
