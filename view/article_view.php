@@ -2,6 +2,7 @@
 require 'view/include/head.php';
 require 'view/include/header.php';
 session_start();
+
 ?>
 
 <!-- Content -->
@@ -32,8 +33,10 @@ session_start();
                         <input class="btn light" name="envoi" type="submit" value="Inscription">
                     </div>
                 </form>
-                <pre><?php print_r($_SESSION); ?>
-                </pre>
+                <?php print_r($_SESSION['flash']['message']);
+                echo $test;
+                echo $error; ?>
+
                 <!-- FORMULAIRE MESSAGE -->
                 <!-- <form id="form" action="index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">
                     <div class="row">

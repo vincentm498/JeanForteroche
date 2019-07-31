@@ -20,6 +20,11 @@ class Session extends Connect
 
     public function showFlash()
     {
-        if (!empty($_SESSION)) { }
+        if (!empty($_SESSION['flash'])) { ?>
+            <script>
+                alert('coucou');
+            </script>
+        <?php
+        }
     }
 }
