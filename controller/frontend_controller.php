@@ -38,3 +38,12 @@ function mentionsView()
     // Affichage
     require 'view/mentions_view.php';
 }
+
+function formConnect()
+{
+    $articlesModel = new \Blog\Articles();
+    $articles = $articlesModel->getAllArticles();
+
+    // Affichage
+    require 'view/form_view.php';
+}

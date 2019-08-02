@@ -1,8 +1,7 @@
 <?php
 
 // Chargement des classes
-require_once('class/Members.php');
-
+//require_once('class/Members.php');
 
 
 function addMember($articleId, $pseudo, $pass_hache, $email)
@@ -36,23 +35,23 @@ function addMember($articleId, $pseudo, $pass_hache, $email)
                         $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
 
                         //$addMember = $commentsModel->addMember($pseudo, $pass_hache, $email);
-                        $session->setFlash("Votre compte a été créé avec succès");
+                        $session->setFlash("Votre compte a été créé avec succès", 'green');
                         header('Location: index.php?action=article&id=' . $articleId);
                     } else {
-                        $session->setFlash("Pseudo ou mail déja utilisés");
+                        $session->setFlash("Pseudo ou mail déja utilisés", 'red');
                         header('Location: index.php?action=article&id=' . $articleId);
                     }
                 } else {
-                    $session->setFlash("Votre email n'est pas correct");
+                    $session->setFlash("Votre email n'est pas correct", 'red');
                     header('Location: index.php?action=article&id=' . $articleId);
                 }
             } else {
-                $session->setFlash("Le mots de passe n'est pas identique");
+                $session->setFlash("Le mots de passe n'est pas identique", 'red');
                 header('Location: index.php?action=article&id=' . $articleId);
             }
         } else {
-            $session->setFlash("Veuillez remplir tous les champs");
-            header('Location: index.php?action=article&id=' . $articleId);
+            $session->setFlash("Veuillez remplir tous les champs", 'red');
+            // header('Location: index.php?action=article&id=' . $articleId);
         }
     }
 }

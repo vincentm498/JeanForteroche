@@ -44,6 +44,11 @@ switch ($action) {
         mentionsView();
         break;
 
+        // Affichage de pages simple
+    case 'formConnect':
+        formConnect();
+        break;
+
     default:
         homeView();
         break;
