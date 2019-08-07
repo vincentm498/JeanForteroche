@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Inclusion du namespace
 use \Blog\Autoloader;
 
