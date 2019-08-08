@@ -1,15 +1,15 @@
 <?php
 session_start();
-// Inclusion du namespace
-use \Blog\Autoloader;
-
 ini_set('display_errors', 1);
+
+// Inclusion du namespace
+// use \Blog\Autoloader;
 
 //inclusion des fichiers principaux
 require "include.php";
 
 
-Autoloader::register();
+// Autoloader::register();
 
 $action = "";
 
@@ -51,6 +51,7 @@ switch ($action) {
         break;
 
     default:
-        homeView();
+        $home = new Affichage;
+        $home->homeView();
         break;
 }
