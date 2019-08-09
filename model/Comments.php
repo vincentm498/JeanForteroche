@@ -1,8 +1,6 @@
 <?php
 
-namespace Blog;
-
-require_once("class/Connect.php");
+namespace JeanForteroche\model;
 
 class Comments extends Connect
 {

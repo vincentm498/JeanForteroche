@@ -1,16 +1,16 @@
 <?php
 
+namespace JeanForteroche\model;
 
-class Articles
+class Articles extends Connect
 {
     //Renvoie la liste de tous les articles
     public function getAllArticles()
     {
-        echo 'ok';
-        // $db = $this->dbConnect();
-        // $articles = $db->query('SELECT * FROM articles ORDER BY id ASC');
+        $db = $this->dbConnect();
+        $articles = $db->query('SELECT * FROM articles ORDER BY id ASC');
 
-        // return $articles->fetchAll();
+        return $articles->fetchAll();
     }
 
     // Renvoie la liste des deux derniers articles

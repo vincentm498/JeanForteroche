@@ -1,15 +1,15 @@
 <?php
+
+use JeanForteroche\controller\Articles_controller;
+use JeanForteroche\controller\Comments_controller;
+use JeanForteroche\controller\Members_controller;
+
 session_start();
 ini_set('display_errors', 1);
-
-// Inclusion du namespace
-// use \Blog\Autoloader;
 
 //inclusion des fichiers principaux
 require "include.php";
 
-
-// Autoloader::register();
 
 $action = "";
 
@@ -22,36 +22,45 @@ if (isset($_POST['login_success'])) { }
 
 switch ($action) {
 
-        // Affichage des articles
+        // Affichage de tous les articles
     case 'allArticle':
-        romanView();
+        $affichage = new Articles_controller;
+        $affichage->romanView();
         break;
 
+        // Affichage de l'article
     case 'article':
-        articleView();
+        $affichage = new Articles_controller;
+        $affichage->articleView();
         break;
 
-        // Envoi de données
+        // Ajout de commentaires
     case 'addComment':
-        addComment($_GET['id'], $_POST['member'], $_POST['comment']);
+        $comments = new Comments_controller;
+        $comments->addComment($_GET['id'], $_POST['member'], $_POST['comment']);
         break;
 
+        // Ajout de membres
     case 'addMember':
-        addMember($_GET['id'], $_POST['pseudo'], $_POST['pass'], $_POST['verification_pass'], $_POST['email']);
+        $members = new Members_controller;
+        //        $members->addMember($_GET['id'], $_POST['pseudo'], $_POST['pass'], $_POST['verification_pass'], $_POST['email']);
+        $members->member($_POST['pseudo'], $_POST['pass'], $_POST['verification_pass'], $_POST['email']);
+        $members->addMember($_POST['pseudo'], $_POST['pass_hache'], $_POST['email']);
         break;
 
-        // Affichage de pages simple
+        // Affichage de la page mentions légales
     case 'mentions':
         mentionsView();
         break;
 
-        // Affichage de pages simple
-    case 'formConnect':
-        formConnect();
-        break;
+        // Affichage de la page formulaire
+        // case 'formConnect':
+        //     formConnect();
+        //     break;
 
+        // Affichage de la home
     default:
-        $home = new Affichage;
-        $home->homeView();
+        $affichage = new Articles_controller;
+        $affichage->homeView();
         break;
 }

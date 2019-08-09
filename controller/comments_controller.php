@@ -1,17 +1,22 @@
 <?php
 
-// Chargement des classes
-require_once('class/Comments.php');
+namespace JeanForteroche\controller;
 
-function addComment($articleId, $membreID, $comment)
+use JeanForteroche\model\Comments;
+
+class Comments_controller
 {
-    $commentsModel = new \Blog\Comments();
 
-    $addcomment = $commentsModel->postComment($articleId, $membreID, $comment);
+    public function addComment($articleId, $membreID, $comment)
+    {
+        $commentsModel = new Comments();
 
-    if ($addcomment === false) {
-        throw new Exception('Impossible d\'ajouter le commentaire !');
-    } else {
-        header('Location: index.php?action=article&id=' . $articleId);
+        $addcomment = $commentsModel->postComment($articleId, $membreID, $comment);
+
+        if ($addcomment === false) {
+            throw new Exception('Impossible d\'ajouter le commentaire !');
+        } else {
+            header('Location: index.php?action=article&id=' . $articleId);
+        }
     }
 }
