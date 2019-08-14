@@ -2,18 +2,15 @@
 
 namespace JeanForteroche\controller;
 
-use JeanForteroche\controller\Controller_controller;
 use JeanForteroche\model\Articles;
 use JeanForteroche\model\Comments;
 
-class Articles_controller extends Controller_controller
+class Articles_controller
 {
-    //Affichage de la home
+    //Affichage de la home, deux derniers articles
     public function homeView()
     {
-        $this->test();
         $articlesModel = new Articles();
-        $articlesModel->getAllArticles();
         $lastArticles = $articlesModel->getLastArticles();
         $articles = $articlesModel->getAllArticles();
 
@@ -21,7 +18,7 @@ class Articles_controller extends Controller_controller
         require 'view/home_view.php';
     }
 
-    //Affichage de la page roman
+    //Affichage de la page roman, tous les articles.
     public function romanView()
     {
         $articlesModel = new Articles();
@@ -46,11 +43,7 @@ class Articles_controller extends Controller_controller
     }
 }
 
-// function mentionsView()
-// {
-//     // Affichage
-//     require 'view/mentions_view.php';
-// }
+
 
 // function formConnect()
 // {

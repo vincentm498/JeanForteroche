@@ -19,7 +19,7 @@ require 'view/include/header.php';
         <h2>COMMENTAIRES</h2>
         <p>Pour déposer un commentaire, vous devez être connecté</p>
         <!-- FORMULAIRE INSCRIPTION -->
-        <form id="form" action="index.php?action=addMember" method="post">
+        <form id="form" action="index.php?action=addMember&amp;id=<?= $article['id'] ?>" method="post">
             <div class="row">
                 <input type="text" name="pseudo" id="pseudo" placeholder="Votre peudo">
                 <input type="email" name="email" id="email" placeholder="Votre email">
@@ -27,6 +27,16 @@ require 'view/include/header.php';
                 <input type="password" name="verification_pass" id="verification_pass" placeholder="Confirmation du mot de passe">
                 <input class="btn light" name="envoi" type="submit" value="Inscription">
             </div>
+        </form>
+
+        <!-- FORMULAIRE MESSAGE -->
+        <form id="form" action="index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">
+            <div class="row">
+                <input type="text" id="member" name="member" />
+                <textarea id="comment" name="comment"></textarea>
+                <input class="btn" type="submit" value="Envoyer">
+            </div>
+
         </form>
 
         <div class="commentaires">
@@ -43,15 +53,7 @@ require 'view/include/header.php';
 
                 <div class="form-chap">
 
-                    <!-- FORMULAIRE MESSAGE -->
-                    <form id="form" action="index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">
-                        <div class="row">
-                            <input type="text" id="member" name="member" />
-                            <textarea id="comment" name="comment"></textarea>
-                            <input class="btn" type="submit" value="Envoyer">
-                        </div>
 
-                    </form>
                 </div>
 
             <?php } else { ?>
@@ -65,10 +67,10 @@ require 'view/include/header.php';
                 if (!empty($comments)) {
                     foreach ($comments as $index => $comment) : ?>
                         <div class="comment">
-                            <?= str_secur($comment['pseudo']) ?>
+                            <?= $comment['pseudo'] ?>
                             Le: <?= date_format(date_create($comment['date_post']), "d/m/Y H:i") ?>
                             <input class="btn" type="submit" value="Signaler">
-                            <p><?= str_secur($comment['post']) ?></p>
+                            <p><?= $comment['post'] ?></p>
                         </div>
                     <?php endforeach;
                 } else {

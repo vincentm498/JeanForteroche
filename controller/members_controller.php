@@ -2,25 +2,24 @@
 
 namespace JeanForteroche\controller;
 
-use JeanForteroche\controller\Controller_controller;
-use JeanForteroche\model\Members;
 use JeanForteroche\model\Session;
+use JeanForteroche\model\Members;
 
-
-class Members_controller extends Controller_controller
+class Members_controller
 {
 
-    public function member($articleId, $pseudo, $pass_hache, $email)
+    // Ajout d'un nouveau membre
+    public function addMember($articleId, $pseudo, $pass_hache, $email)
     {
         $commentsModel = new Members();
         $session = new Session(); //Lance la session
 
         if (isset($_POST['envoi'])) { // si formulaire soumis
 
-            $pseudo = str_secur($_POST['pseudo']);
-            $pass = str_secur($_POST['pass']);
-            $email = str_secur($_POST['email']);
-            $verification_pass = str_secur($_POST['verification_pass']);
+            $pseudo = htmlspecialchars($_POST['pseudo']);
+            $pass = htmlspecialchars($_POST['pass']);
+            $email = htmlspecialchars($_POST['email']);
+            $verification_pass = htmlspecialchars($_POST['verification_pass']);
 
             // on teste la déclaration de nos variables
             if (!empty($pseudo) &&  !empty($pass) &&  !empty($email) &&  !empty($verification_pass)) {
@@ -32,16 +31,15 @@ class Members_controller extends Controller_controller
                     if (filter_var($email, FILTER_VALIDATE_EMAIL, FILTER_FLAG_PATH_REQUIRED)) {
 
                         //Test du membre déjà ajouté
-                        // $pseudo_verif = $commentsModel->getMemberInscription($pseudo, $email);
+                        $pseudo_verif = $commentsModel->getMemberInscription($pseudo, $email);
 
-                        //if (count($pseudo_verif) == 0) {
-                        if (1 == 1) {
+                        if (count($pseudo_verif) == 0) {
                             // Hachage du mot de passe
                             $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
 
                             $addMember = $commentsModel->addMember($pseudo, $pass_hache, $email);
                             $session->setFlash("Votre compte a été créé avec succès", 'green');
-                            // header('Location: index.php?action=article&id=' . $articleId);
+                            header('Location: index.php?action=article&id=' . $articleId);
                         } else {
                             $session->setFlash("Pseudo ou mail déja utilisés", 'red');
                             header('Location: index.php?action=article&id=' . $articleId);

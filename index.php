@@ -3,6 +3,7 @@
 use JeanForteroche\controller\Articles_controller;
 use JeanForteroche\controller\Comments_controller;
 use JeanForteroche\controller\Members_controller;
+use JeanForteroche\controller\Statique_controller;
 
 session_start();
 ini_set('display_errors', 1);
@@ -42,15 +43,15 @@ switch ($action) {
 
         // Ajout de membres
     case 'addMember':
+
         $members = new Members_controller;
-        //        $members->addMember($_GET['id'], $_POST['pseudo'], $_POST['pass'], $_POST['verification_pass'], $_POST['email']);
-        $members->member($_POST['pseudo'], $_POST['pass'], $_POST['verification_pass'], $_POST['email']);
-        $members->addMember($_POST['pseudo'], $_POST['pass_hache'], $_POST['email']);
+        $members->addMember($_GET['id'], $_POST['pseudo'], $_POST['pass'], $_POST['verification_pass'], $_POST['email']);
         break;
 
         // Affichage de la page mentions légales
     case 'mentions':
-        mentionsView();
+        $mentions = new Statique_controller;
+        $mentions->mentionsView();
         break;
 
         // Affichage de la page formulaire

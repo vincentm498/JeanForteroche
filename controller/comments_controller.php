@@ -2,15 +2,18 @@
 
 namespace JeanForteroche\controller;
 
+
 use JeanForteroche\model\Comments;
 
 class Comments_controller
 {
 
+    //Ajout d'un commentaire 
     public function addComment($articleId, $membreID, $comment)
     {
         $commentsModel = new Comments();
 
+        $comment = htmlspecialchars($_POST['comment']);
         $addcomment = $commentsModel->postComment($articleId, $membreID, $comment);
 
         if ($addcomment === false) {
