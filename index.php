@@ -2,10 +2,10 @@
 
 require "vendor/autoload.php";
 
-// use JeanForteroche\controller\Articles_controller;
-// use JeanForteroche\controller\Comments_controller;
-// use JeanForteroche\controller\Members_controller;
-// use JeanForteroche\controller\Statique_controller;
+use JeanForteroche\controller\Articles_controller;
+use JeanForteroche\controller\Comments_controller;
+use JeanForteroche\controller\Members_controller;
+use JeanForteroche\controller\Statique_controller;
 
 session_start();
 ini_set('display_errors', 1);
