@@ -1,0 +1,10 @@
+{
+    "name": "blog/composer",
+    "authors": [
+        {
+            "name": "Vincent Moreau",
+            "email": "vincentm498@gmail.com"
+        }
+    ],
+    "require": {}
+}

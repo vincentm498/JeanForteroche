@@ -1,6 +1,6 @@
 <?php
 
-namespace JeanForteroche\controller;
+// namespace JeanForteroche\controller;
 
 use JeanForteroche\model\Articles;
 use JeanForteroche\model\Comments;
