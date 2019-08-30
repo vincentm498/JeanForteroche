@@ -1,10 +1,13 @@
 {
-    "name": "blog/composer",
-    "authors": [
-        {
-            "name": "Vincent Moreau",
-            "email": "vincentm498@gmail.com"
-        }
-    ],
-    "require": {}
+    "name": "jeanforteroche/composeur",
+    "require": {},
+    "authors": [{
+        "name": "Vincent Moreau",
+        "email": "vincentm498@gmail.com"
+    }],
+    "autoload": {
+        "psr-4": {}
+    }
+
+
 }
