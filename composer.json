@@ -6,7 +6,9 @@
         "email": "vincentm498@gmail.com"
     }],
     "autoload": {
-        "psr-4": {}
+        "psr-4": {
+            "JeanForteroche\\": "jeanforteroche/"
+        }
     }
 
 

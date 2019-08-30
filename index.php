@@ -1,16 +1,15 @@
 <?php
+
+session_start();
+ini_set('display_errors', 1);
+
 require "vendor/autoload.php";
 
 use JeanForteroche\controller\Articles_controller;
 use JeanForteroche\controller\Comments_controller;
 use JeanForteroche\controller\Members_controller;
-use JeanForteroche\controller\Statique_controller;
+use JeanForteroche\controller\Controller;
 
-session_start();
-ini_set('display_errors', 1);
-
-//inclusion des fichiers principaux
-//require "include.php";
 
 
 $action = "";
@@ -51,7 +50,7 @@ switch ($action) {
 
         // Affichage de la page mentions légales
     case 'mentions':
-        $mentions = new Statique_controller;
+        $mentions = new Controller;
         $mentions->mentionsView();
         break;
 

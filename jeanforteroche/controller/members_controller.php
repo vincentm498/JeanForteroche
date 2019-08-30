@@ -5,14 +5,13 @@ namespace JeanForteroche\controller;
 use JeanForteroche\model\Session;
 use JeanForteroche\model\Members;
 
-class Members_controller
+class Members_controller extends Controller
 {
 
     // Ajout d'un nouveau membre
     public function addMember($articleId, $pseudo, $pass_hache, $email)
     {
         $commentsModel = new Members();
-        $session = new Session(); //Lance la session
 
         if (isset($_POST['envoi'])) { // si formulaire soumis
 
@@ -38,22 +37,22 @@ class Members_controller
                             $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
 
                             $addMember = $commentsModel->addMember($pseudo, $pass_hache, $email);
-                            $session->setFlash("Votre compte a été créé avec succès", 'green');
+                            $this->setFlash("Votre compte a été créé avec succès", 'green');
                             header('Location: index.php?action=article&id=' . $articleId);
                         } else {
-                            $session->setFlash("Pseudo ou mail déja utilisés", 'red');
+                            $this->setFlash("Pseudo ou mail déja utilisés", 'red');
                             header('Location: index.php?action=article&id=' . $articleId);
                         }
                     } else {
-                        $session->setFlash("Votre email n'est pas correct", 'red');
+                        $this->setFlash("Votre email n'est pas correct", 'red');
                         header('Location: index.php?action=article&id=' . $articleId);
                     }
                 } else {
-                    $session->setFlash("Le mots de passe n'est pas identique", 'red');
+                    $this->setFlash("Le mots de passe n'est pas identique", 'red');
                     header('Location: index.php?action=article&id=' . $articleId);
                 }
             } else {
-                $session->setFlash("Veuillez remplir tous les champs", 'red');
+                $this->setFlash("Veuillez remplir tous les champs", 'red');
                 header('Location: index.php?action=article&id=' . $articleId);
             }
         }

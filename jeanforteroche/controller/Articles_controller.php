@@ -1,11 +1,11 @@
 <?php
 
-// namespace JeanForteroche\controller;
+namespace JeanForteroche\controller;
 
 use JeanForteroche\model\Articles;
 use JeanForteroche\model\Comments;
 
-class Articles_controller
+class Articles_controller extends Controller
 {
     //Affichage de la home, deux derniers articles
     public function homeView()

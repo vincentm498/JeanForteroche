@@ -4,7 +4,7 @@ namespace JeanForteroche\controller;
 
 use JeanForteroche\model\Articles;
 
-class Statique_controller
+class Controller
 {
     // Affichage de la page des mentions légales.
     public function mentionsView()
@@ -14,5 +14,15 @@ class Statique_controller
 
         // Affichage
         require 'view/mentions_view.php';
+    }
+
+    // Ouverture d'une session
+    public function setFlash($message, $color = "white")
+    {
+        $_SESSION['flash'] = [
+            "color"     => $color,
+            "message"   => $message
+
+        ];
     }
 }
