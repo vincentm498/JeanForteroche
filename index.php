@@ -45,7 +45,7 @@ switch ($action) {
     case 'addMember':
 
         $members = new Members_controller;
-        $members->addMember($_GET['id'], $_POST['pseudo'], $_POST['pass'], $_POST['verification_pass'], $_POST['email']);
+        $members->addMember();
         break;
 
         // Affichage de la page mentions légales
@@ -65,6 +65,13 @@ switch ($action) {
 
         $members = new Members_controller;
         $members->connexion();
+
+        break;
+
+    case 'inscription':
+
+        $members = new Members_controller;
+        $members->inscription();
 
         break;
 

@@ -12,10 +12,8 @@ class Comments_controller  extends Controller
     {
 
         $commentsModel = new Comments();
-        $membreID = 'ID';
+        $membreID = $_SESSION['membreID'];
 
-        echo $articleId . '+' . $comment . '+' . $membreID;
-        exit;
 
         $comment = htmlspecialchars($_POST['comment']);
         $addcomment = $commentsModel->postComment($articleId, $membreID, $comment);

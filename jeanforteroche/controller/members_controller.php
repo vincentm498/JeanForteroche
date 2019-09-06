@@ -10,7 +10,7 @@ class Members_controller extends Controller
 {
 
     // Ajout d'un nouveau membre
-    public function addMember($articleId, $pseudo, $pass_hache, $email)
+    public function addMember()
     {
         $commentsModel = new Members();
 
@@ -20,6 +20,16 @@ class Members_controller extends Controller
             $pass = htmlspecialchars($_POST['pass']);
             $email = htmlspecialchars($_POST['email']);
             $verification_pass = htmlspecialchars($_POST['verification_pass']);
+            $articleId = 0;
+            if (isset($_GET['id'])) {
+                $articleId = $_GET['id'];
+            }
+            if ($articleId == 0) {
+                // $url = 'index.php?action=inscription';
+                $url = 'index.php';
+            } else {
+                $url = 'index.php?action=article&id=' . $articleId;
+            }
 
             // on teste la déclaration de nos variables
             if (!empty($pseudo) &&  !empty($pass) &&  !empty($email) &&  !empty($verification_pass)) {
@@ -40,27 +50,25 @@ class Members_controller extends Controller
                             $addMember = $commentsModel->addMember($pseudo, $pass_hache, $email);
                             $this->setFlash("Votre compte a été créé avec succès", 'green');
 
-                            // $_SESSION['membreID'] = "1";
-                            $_SESSION['prenom'] = $_POST['pseudo'];
-                            $_SESSION['email'] = $_POST['email'];
-                            $_SESSION['pass'] = $_POST['verification_pass'];
+                            $_SESSION['membreID'] = $addMember;
 
-                            header('Location: index.php?action=article&id=' . $articleId);
+                            header('Location: ' . $url);
                         } else {
                             $this->setFlash("Pseudo ou mail déja utilisés", 'red');
-                            header('Location: index.php?action=article&id=' . $articleId);
+
+                            header('Location: ' . $url);
                         }
                     } else {
                         $this->setFlash("Votre email n'est pas correct", 'red');
-                        header('Location: index.php?action=article&id=' . $articleId);
+                        header('Location: ' . $url);
                     }
                 } else {
                     $this->setFlash("Le mots de passe n'est pas identique", 'red');
-                    header('Location: index.php?action=article&id=' . $articleId);
+                    header('Location: ' . $url);
                 }
             } else {
                 $this->setFlash("Veuillez remplir tous les champs", 'red');
-                header('Location: index.php?action=article&id=' . $articleId);
+                header('Location: ' . $url);
             }
         }
     }
@@ -70,17 +78,26 @@ class Members_controller extends Controller
     {
         // Détruit toutes les variables de session
         $_SESSION = array();
-        print_r($_SESSION);
         header('Location: index.php');
     }
 
     // Connection de membre
     public function connexion()
     {
-
         $articlesModel = new Articles();
         $articles = $articlesModel->getAllArticles();
+
         // Affichage
         require 'view/connexion_view.php';
+    }
+
+    // Inscription de membre
+    public function inscription()
+    {
+        $articlesModel = new Articles();
+        $articles = $articlesModel->getAllArticles();
+
+        // Affichage
+        require 'view/inscription_view.php';
     }
 }

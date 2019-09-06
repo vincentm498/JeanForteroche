@@ -21,10 +21,12 @@ require 'view/include/header.php';
         <!-- FORMULAIRE INSCRIPTION -->
         <?php
 
-        if (!isset($_SESSION['nameID'])) {
+        if (!isset($_SESSION['membreID'])) {
             ?>
             <p>Vous devez vous connectez pour écrire votre message </p>
-            <form id="form" action="index.php?action=addMember&amp;id=<?= $article['id'] ?>" method="post">
+            <a class="btn" href="index.php?action=inscription&amp;id=<?= $article['id'] ?>">Inscription</a>
+            <a class="btn" href="index.php?action=connexion&amp;id=<?= $article['id'] ?>">Connexion</a>
+            <!-- <form id="form" action="index.php?action=addMember&amp;id=<?= $article['id'] ?>" method="post">
                 <div class="row">
                     <input type="text" name="pseudo" id="pseudo" placeholder="Votre peudo">
                     <input type="email" name="email" id="email" placeholder="Votre email">
@@ -32,10 +34,10 @@ require 'view/include/header.php';
                     <input type="password" name="verification_pass" id="verification_pass" placeholder="Confirmation du mot de passe">
                     <input class="btn light" name="envoi" type="submit" value="Inscription">
                 </div>
-            </form>
+            </form> -->
         <?php } else { ?>
 
-            <p>Bienvenue <?= $_SESSION['nameID'] ?> laissez votre message </p>
+            <p>Bienvenue laissez votre message </p>
             <!-- FORMULAIRE MESSAGE -->
             <form id="form" action="index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">
                 <div class="row">
@@ -47,26 +49,6 @@ require 'view/include/header.php';
         <?php }; ?>
 
         <div class="commentaires">
-
-            <?php
-            if (!empty($_SESSION['flash'])) {;
-                $color = $_SESSION['flash']['color'] . '-text'; ?>
-                <script>
-                    M.toast({
-                        html: "<i class='material-icons left <?= $color ?> '>label</i>" + "<?= $_SESSION['flash']['message'] ?>"
-                    })
-                </script>
-                <?php unset($_SESSION['flash']['message']); ?>
-
-                <div class="form-chap">
-
-
-                </div>
-
-            <?php } else { ?>
-
-
-            <?php } ?>
 
             <div class="comments">
 

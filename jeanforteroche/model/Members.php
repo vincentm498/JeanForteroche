@@ -12,7 +12,8 @@ class Members extends Connect
         $member = $db->prepare('INSERT INTO members(pseudo, pass, email, date_inscription, id_groupe) VALUES(?, ?, ?, NOW(), 2)');
         $member->execute(array($pseudo, $pass_hache, $email));
 
-        return $member->fetch();
+        $member->fetch();
+        return $db->lastInsertId();
     }
 
 
