@@ -264,8 +264,8 @@ main #roman .conteneur-full-image img {
 
 /***************************************************************************************************** FORMULAIRES*/
 #form {
-    width: 340px;
-    margin: 150px auto 50px;
+    /*! width: 340px; */
+    /*! margin: 150px auto 50px; */
 
 }
 

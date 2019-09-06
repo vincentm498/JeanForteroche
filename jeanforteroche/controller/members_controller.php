@@ -2,8 +2,9 @@
 
 namespace JeanForteroche\controller;
 
-use JeanForteroche\model\Session;
+// use JeanForteroche\model\Session;
 use JeanForteroche\model\Members;
+use JeanForteroche\model\Articles;
 
 class Members_controller extends Controller
 {
@@ -38,6 +39,12 @@ class Members_controller extends Controller
 
                             $addMember = $commentsModel->addMember($pseudo, $pass_hache, $email);
                             $this->setFlash("Votre compte a été créé avec succès", 'green');
+
+                            // $_SESSION['membreID'] = "1";
+                            $_SESSION['prenom'] = $_POST['pseudo'];
+                            $_SESSION['email'] = $_POST['email'];
+                            $_SESSION['pass'] = $_POST['verification_pass'];
+
                             header('Location: index.php?action=article&id=' . $articleId);
                         } else {
                             $this->setFlash("Pseudo ou mail déja utilisés", 'red');
@@ -56,5 +63,24 @@ class Members_controller extends Controller
                 header('Location: index.php?action=article&id=' . $articleId);
             }
         }
+    }
+
+    // Deconnection de membre
+    public function deconnexion()
+    {
+        // Détruit toutes les variables de session
+        $_SESSION = array();
+        print_r($_SESSION);
+        header('Location: index.php');
+    }
+
+    // Connection de membre
+    public function connexion()
+    {
+
+        $articlesModel = new Articles();
+        $articles = $articlesModel->getAllArticles();
+        // Affichage
+        require 'view/connexion_view.php';
     }
 }

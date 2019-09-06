@@ -1,6 +1,6 @@
 <?php
-
 session_start();
+
 ini_set('display_errors', 1);
 
 require "vendor/autoload.php";
@@ -38,7 +38,7 @@ switch ($action) {
         // Ajout de commentaires
     case 'addComment':
         $comments = new Comments_controller;
-        $comments->addComment($_GET['id'], $_POST['member'], $_POST['comment']);
+        $comments->addComment($_GET['id'], $_POST['comment']);
         break;
 
         // Ajout de membres
@@ -54,10 +54,20 @@ switch ($action) {
         $mentions->mentionsView();
         break;
 
-        // Affichage de la page formulaire
-        // case 'formConnect':
-        //     formConnect();
-        //     break;
+    case 'deconnexion':
+
+        $members = new Members_controller;
+        $members->deconnexion();
+
+        break;
+
+    case 'connexion':
+
+        $members = new Members_controller;
+        $members->connexion();
+
+        break;
+
 
         // Affichage de la home
     default:

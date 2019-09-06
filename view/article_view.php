@@ -17,27 +17,34 @@ require 'view/include/header.php';
 
     <section>
         <h2>COMMENTAIRES</h2>
-        <p>Pour déposer un commentaire, vous devez être connecté</p>
+
         <!-- FORMULAIRE INSCRIPTION -->
-        <form id="form" action="index.php?action=addMember&amp;id=<?= $article['id'] ?>" method="post">
-            <div class="row">
-                <input type="text" name="pseudo" id="pseudo" placeholder="Votre peudo">
-                <input type="email" name="email" id="email" placeholder="Votre email">
-                <input type="password" name="pass" id="pass" placeholder="Mots de passe">
-                <input type="password" name="verification_pass" id="verification_pass" placeholder="Confirmation du mot de passe">
-                <input class="btn light" name="envoi" type="submit" value="Inscription">
-            </div>
-        </form>
+        <?php
 
-        <!-- FORMULAIRE MESSAGE -->
-        <form id="form" action="index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">
-            <div class="row">
-                <input type="text" id="member" name="member" />
-                <textarea id="comment" name="comment"></textarea>
-                <input class="btn" type="submit" value="Envoyer">
-            </div>
+        if (!isset($_SESSION['nameID'])) {
+            ?>
+            <p>Vous devez vous connectez pour écrire votre message </p>
+            <form id="form" action="index.php?action=addMember&amp;id=<?= $article['id'] ?>" method="post">
+                <div class="row">
+                    <input type="text" name="pseudo" id="pseudo" placeholder="Votre peudo">
+                    <input type="email" name="email" id="email" placeholder="Votre email">
+                    <input type="password" name="pass" id="pass" placeholder="Mots de passe">
+                    <input type="password" name="verification_pass" id="verification_pass" placeholder="Confirmation du mot de passe">
+                    <input class="btn light" name="envoi" type="submit" value="Inscription">
+                </div>
+            </form>
+        <?php } else { ?>
 
-        </form>
+            <p>Bienvenue <?= $_SESSION['nameID'] ?> laissez votre message </p>
+            <!-- FORMULAIRE MESSAGE -->
+            <form id="form" action="index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">
+                <div class="row">
+                    <textarea id="comment" name="comment"></textarea>
+                    <input class="btn" type="submit" value="Envoyer">
+                </div>
+
+            </form>
+        <?php }; ?>
 
         <div class="commentaires">
 
@@ -72,7 +79,7 @@ require 'view/include/header.php';
                             <input class="btn" type="submit" value="Signaler">
                             <p><?= $comment['post'] ?></p>
                         </div>
-                    <?php endforeach;
+                <?php endforeach;
                 } else {
                     echo "Pas de commentaires";
                 } ?>
