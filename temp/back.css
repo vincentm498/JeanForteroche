@@ -1,0 +1,160 @@
+a {
+    color: #2ab7a9;
+}
+
+.barreTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #cecece;
+    height: 5vh;
+    min-height: 50px;
+    padding: 0 5%
+}
+
+.barreTop button {
+    padding: 10px 25px;
+    border-radius: 100px;
+    border: 0;
+}
+
+.barreTop span.user {
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #2ab7a9;
+}
+
+main {
+    display: flex;
+}
+
+main nav {
+    width: 14vw;
+    min-width: 200px;
+    height: 95vh;
+    background-color: #2ab7a9;
+    color: black;
+
+}
+
+main nav li {
+    width: 14vw;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+main nav a {
+    color: black;
+    width: 100%;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+main .conteneur {
+
+    flex: 1;
+    padding: 20px 30px
+}
+
+main .conteneur.bloc {
+
+    border: 1px solid black;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+main h2 {
+    font-size: 1.8em;
+    font-weight: 500;
+    margin: 10px 0;
+    text-transform: uppercase;
+    padding: 0 20px;
+}
+
+main a {
+
+    padding: 0 20px;
+}
+
+main h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    font-weight: 200;
+    padding: 0 20px;
+}
+
+main .conteneur.bloc li.commentaires {
+
+    display: flex;
+
+}
+
+main .conteneur.bloc li.commentaires.impaire {
+    background-color: #e6f5f3;
+}
+
+main .conteneur.bloc li.commentaires.paire {
+    background-color: #f4fcfb;
+}
+
+li.commentaires h4 {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #2ab7a9;
+    font-size: 1.2em;
+    padding: 0 20px;
+}
+
+li.commentaires p {
+
+    padding: 0 20px;
+}
+
+li.commentaires p span {
+    font-weight: 700;
+    color: #2ab7a9
+}
+
+.conteneur.bloc ul {
+    margin: 0;
+}
+
+.boutonModeration {
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+
+}
+
+.boutonModeration a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.boutonModeration a .fa-check-circle {
+    color: green;
+
+}
+
+.boutonModeration a .fa-times-circle {
+    color: red;
+
+}
+
+.contenuCommentaire {
+    width: 100%
+}
+
+nav .far {
+    font-size: 1.5em;
+    padding: 0 10px;
+    position: relative;
+    top: 2px;
+}
