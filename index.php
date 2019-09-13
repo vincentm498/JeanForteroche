@@ -75,7 +75,6 @@ switch ($action) {
 
         break;
 
-
         // Affichage de la home
     default:
         $affichage = new Articles_controller;

@@ -4,7 +4,7 @@
 <?php require 'view/include/header.php' ?>
 <!-- Content -->
 <!-- FORMULAIRE CONNEXION -->
-<form id="form" action="" method="post">
+<form id="form" action="index.php?action=" method="post">
     <div class="row">
 
         <input type="email" name="email" id="email" placeholder="Votre email">
