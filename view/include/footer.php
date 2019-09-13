@@ -4,7 +4,7 @@
         <div class="category-footer">
             <h5>Chapitres</h5>
             <ul>
-                <?php foreach ($articles as $article) : ?>
+                <?php foreach ($this->articlesfooter as $article) : ?>
                     <li><a class="link-footer" href="index.php?action=article&amp;id=<?= $article['id'] ?>"><?= $article['title'] ?></a></li>
                 <?php endforeach; ?>
             </ul>

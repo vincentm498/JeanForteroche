@@ -4,8 +4,13 @@ namespace JeanForteroche\controller;
 
 use JeanForteroche\model\Articles;
 
+
 class Controller
 {
+    public function __construct()
+    {
+        $this->articlesfooter = $this->getallarticlefooter();
+    }
     // Affichage de la page des mentions légales.
     public function mentionsView()
     {
@@ -24,5 +29,12 @@ class Controller
             "message"   => $message
 
         ];
+    }
+
+    public function getallarticlefooter()
+    {
+        $articlesModel = new Articles();
+        $articles = $articlesModel->getAllArticles();
+        return $articles;
     }
 }

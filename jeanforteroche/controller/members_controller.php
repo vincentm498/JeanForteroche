@@ -9,6 +9,11 @@ use JeanForteroche\model\Articles;
 class Members_controller extends Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     // Ajout d'un nouveau membre
     public function addMember()
     {
@@ -21,8 +26,8 @@ class Members_controller extends Controller
             $email = htmlspecialchars($_POST['email']);
             $verification_pass = htmlspecialchars($_POST['verification_pass']);
             $articleId = 0;
-            if (isset($_GET['id'])) {
-                $articleId = $_GET['id'];
+            if (isset($_POST['id'])) {
+                $articleId = $_POST['id'];
             }
             if ($articleId == 0) {
                 // $url = 'index.php?action=inscription';
@@ -81,23 +86,25 @@ class Members_controller extends Controller
         header('Location: index.php');
     }
 
-    // Connection de membre
+    // Page Connection de membre
     public function connexion()
     {
-        $articlesModel = new Articles();
-        $articles = $articlesModel->getAllArticles();
-
         // Affichage
         require 'view/connexion_view.php';
     }
 
-    // Inscription de membre
+    // Page Inscription de membre
     public function inscription()
     {
-        $articlesModel = new Articles();
-        $articles = $articlesModel->getAllArticles();
-
+        $id = $_GET['id'];
         // Affichage
         require 'view/inscription_view.php';
+    }
+
+    // Connection de membre
+    public function connexionlog()
+    {
+        $connexion = 'Connecté';
+        echo $connexion;
     }
 }

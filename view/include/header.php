@@ -18,6 +18,18 @@
                 <?php } ?>
                 <a class="icone" href="#"><i class="far fa-user-circle fa-2x"></i></a>
 
+                <?php
+                if (!empty($_SESSION['flash'])) {;
+                    $color = $_SESSION['flash']['color'] . '-text'; ?>
+                    <script>
+                        M.toast({
+                            html: "<i class='material-icons left <?= $color ?> '>label</i>" + "<?= $_SESSION['flash']['message'] ?>"
+                        })
+                    </script>
+                <?php unset($_SESSION['flash']['message']);
+                }
+                ?>
+
             </nav>
         </div>
 
