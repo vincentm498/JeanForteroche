@@ -30,10 +30,9 @@ class Members_controller extends Controller
                 $articleId = $_POST['id'];
             }
             if ($articleId == 0) {
-                // $url = 'index.php?action=inscription';
                 $url = 'index.php';
             } else {
-                $url = 'index.php?action=article&id=' . $articleId;
+                $url = 'index.php?action=inscription&id=' . $articleId;
             }
 
             // on teste la déclaration de nos variables
@@ -52,29 +51,25 @@ class Members_controller extends Controller
                             // Hachage du mot de passe
                             $pass_hache = password_hash($pass, PASSWORD_DEFAULT);
 
+                            $url = 'index.php?action=article&id=' . $articleId;
                             $addMember = $commentsModel->addMember($pseudo, $pass_hache, $email);
                             $this->setFlash("Votre compte a été créé avec succès", 'green');
 
-                            $_SESSION['membreID'] = $addMember;
 
-                            header('Location: ' . $url);
+                            $_SESSION['membreID'] = $addMember;
                         } else {
                             $this->setFlash("Pseudo ou mail déja utilisés", 'red');
-
-                            header('Location: ' . $url);
                         }
                     } else {
                         $this->setFlash("Votre email n'est pas correct", 'red');
-                        header('Location: ' . $url);
                     }
                 } else {
                     $this->setFlash("Le mots de passe n'est pas identique", 'red');
-                    header('Location: ' . $url);
                 }
             } else {
                 $this->setFlash("Veuillez remplir tous les champs", 'red');
-                header('Location: ' . $url);
             }
+            header('Location: ' . $url);
         }
     }
 
@@ -89,6 +84,10 @@ class Members_controller extends Controller
     // Page Connection de membre
     public function connexion()
     {
+        $id = 0;
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        }
         // Affichage
         require 'view/connexion_view.php';
     }
@@ -96,15 +95,59 @@ class Members_controller extends Controller
     // Page Inscription de membre
     public function inscription()
     {
-        $id = $_GET['id'];
+        $id = 0;
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+        }
         // Affichage
         require 'view/inscription_view.php';
     }
 
-    // Connection de membre
-    public function connexionlog()
+    public function verifMember()
     {
-        $connexion = 'Connecté';
-        echo $connexion;
+        $verifMember = new Members();
+
+        if (isset($_POST['envoi'])) {
+
+            $email = htmlspecialchars($_POST['email']);
+            $password = htmlspecialchars($_POST['pass']);
+            $articleId = 0;
+
+            if (isset($_POST['id'])) {
+                $articleId = $_POST['id'];
+            }
+            if ($articleId == 0) {
+                $url = 'index.php';
+            } else {
+                $url = 'index.php?action=connexion&id=' . $articleId;
+            }
+
+            // on teste la déclaration de nos variables
+            if (!empty($email) &&  !empty($password)) {
+
+                // Test email existe en bdd
+                $verifMember = $verifMember->getMemberConnexion($email);
+
+                // Test tableau existe
+                if ($verifMember !== FALSE) {
+
+                    // Test password identique
+                    if (password_verify($password, $verifMember['pass'])) {
+
+                        // Connexion
+                        $url = 'index.php?action=article&id=' . $articleId;
+                        $_SESSION['membreID'] = $verifMember['id'];
+                        $this->setFlash("Connecté", 'green');
+                    } else {
+                        $this->setFlash("Email ou mot de passe incorrect", 'red');
+                    }
+                } else {
+                    $this->setFlash("Identifiant incorrect", 'red');
+                }
+            }
+        } else {
+            $this->setFlash("Veuillez remplir tous les champs", 'red');
+        }
+        header('Location: ' . $url);
     }
 }

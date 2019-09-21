@@ -13,7 +13,7 @@ class Comments extends Connect
         INNER JOIN members as m ON m.id = p.members_id
         WHERE p.post_id = ?
         ORDER BY p.date_post
-        ASC
+        DESC
         ');
         $comments->execute(array($postId));
 

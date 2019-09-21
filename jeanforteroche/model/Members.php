@@ -25,4 +25,13 @@ class Members extends Connect
         $members->execute(array($pseudo, $email));
         return $members->fetchAll();
     }
+
+    //Recupération des membres inscrits pour connexion
+    public function getMemberConnexion($email)
+    {
+        $db = $this->dbConnect();
+        $members = $db->prepare('SELECT * FROM members WHERE email=?');
+        $members->execute(array($email));
+        return $members->fetch();
+    }
 }

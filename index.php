@@ -68,6 +68,14 @@ switch ($action) {
 
         break;
 
+
+    case 'verifMember':
+
+        $members = new Members_controller;
+        $members->verifMember();
+
+        break;
+
     case 'inscription':
 
         $members = new Members_controller;
