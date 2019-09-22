@@ -1,5 +1,5 @@
 footer {
-    background-color: #595959;
+    background-color: #06151c;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -40,7 +40,7 @@ footer .category-footer li {
 footer .category-footer li a:before {
     content: '';
     display: inline-block;
-    background-color: #707070;
+    background-color: #1d79a2;
     width: 5px;
     height: 5px;
     position: relative;
@@ -52,6 +52,14 @@ footer .category-footer .link-footer {
     color: #FFF;
 }
 
+footer .category-footer .link-footer .fab {
+    margin-right: 15px;
+}
+
+footer .category-footer .link-footer:hover {
+    color: #1d79a2;
+}
+
 footer .credits {
     width: 100%;
     text-align: center;
@@ -60,7 +68,11 @@ footer .credits {
 
 footer .credits a {
     padding: 0;
-    color: #a7a7a7;
+    color: #FFF;
+}
+
+footer a:hover {
+    color: #1d79a2;
 }
 
 /***************************************************************************************************** MEDIA QUERIES 1024px*/

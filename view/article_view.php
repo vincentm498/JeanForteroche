@@ -23,21 +23,17 @@ require 'view/include/header.php';
 
         if (!isset($_SESSION['membreID'])) {
             ?>
-            <p>Vous devez vous connectez pour écrire votre message </p>
-            <a class="btn" href="index.php?action=inscription&amp;id=<?= $article['id'] ?>">Inscription</a>
-            <a class="btn" href="index.php?action=connexion&amp;id=<?= $article['id'] ?>">Connexion</a>
-            <!-- <form id="form" action="index.php?action=addMember&amp;id=<?= $article['id'] ?>" method="post">
-                <div class="row">
-                    <input type="text" name="pseudo" id="pseudo" placeholder="Votre peudo">
-                    <input type="email" name="email" id="email" placeholder="Votre email">
-                    <input type="password" name="pass" id="pass" placeholder="Mots de passe">
-                    <input type="password" name="verification_pass" id="verification_pass" placeholder="Confirmation du mot de passe">
-                    <input class="btn light" name="envoi" type="submit" value="Inscription">
-                </div>
-            </form> -->
-        <?php } else { ?>
 
+            <div class="selection">
+                <p>Vous devez vous connectez pour écrire votre message </p>
+                <a class="btn" href="index.php?action=inscription&amp;id=<?= $article['id'] ?>">Inscription</a>
+                <a class="btn" href="index.php?action=connexion&amp;id=<?= $article['id'] ?>">Connexion</a>
+            </div>
+
+        <?php } else { ?>
+            <div class="selection"></div>
             <p>Bienvenue laissez votre message </p>
+            </div>
             <!-- FORMULAIRE MESSAGE -->
             <form id="form" action="index.php?action=addComment&amp;id=<?= $article['id'] ?>" method="post">
                 <div class="row">
@@ -58,7 +54,8 @@ require 'view/include/header.php';
                         <div class="comment">
                             <?= $comment['pseudo'] ?>
                             Le: <?= date_format(date_create($comment['date_post']), "d/m/Y H:i") ?>
-                            <input class="btn" type="submit" value="Signaler">
+
+                            <a href="#"><i class="fas fa-exclamation-circle"></i></a>
                             <p><?= $comment['post'] ?></p>
                         </div>
                 <?php endforeach;

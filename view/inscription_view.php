@@ -3,7 +3,7 @@ require 'view/include/header.php' ?>
 
 
 <!-- FORMULAIRE INSCRIPTION -->
-<form id="form" action="index.php?action=addMember" method="post">
+<form class="connexionInscription" id="form" action="index.php?action=addMember" method="post">
     <div class="row">
         <input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo">
         <input type="hidden" name="id" id="id" value="<?php echo $id ?>">

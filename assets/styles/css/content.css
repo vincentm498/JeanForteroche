@@ -13,24 +13,34 @@ h1 {
     line-height: 112px;
     text-align: center;
     margin: 10px 0;
+    font-family: 'Fjalla One', sans-serif;
 }
 
 h2 {
     font-size: 40px;
-    color: #595959;
+    color: #1d79a2;
     text-transform: uppercase;
     font-weight: lighter;
     line-height: 50px;
     text-align: center;
-    margin: 50px auto;
+    margin: 20px auto;
     max-width: 800px;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.conteneur-full-text h2,
+.conteneur-1200-text h2 {
+    text-align: left;
+    color: #1d79a2;
+
 }
 
 h3 {
     font-size: 20px;
     color: #595959;
     font-weight: lighter;
-    text-align: center;
+    font-family: 'Maven Pro', sans-serif;
+    color: #1d79a2;
 }
 
 p {
@@ -76,7 +86,17 @@ main #roman {
 
 
 .btn {
-    display: initial
+    display: initial;
+    background-color: #1d79a2;
+    padding: 10px 30px;
+    border-radius: 31px;
+    box-shadow: none;
+}
+
+.btn:hover {
+    box-shadow: none;
+    background-color: #06151c;
+    color: #FFF;
 }
 
 /***************************************************************************************************** HEADER*/
@@ -84,7 +104,7 @@ main #roman {
 main #header {
     width: 100%;
     height: 610px;
-    background-color: #BFBFBF;
+    background-image: url(../../images/Header.png);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,12 +116,13 @@ main #header {
 
 main #header h1 {
     text-align: center;
-    border: 3px #595959 solid;
+    border: 3px #FFF solid;
     padding: 20px;
     font-size: 4em;
     line-height: 1em;
     margin: 0;
     color: #FFF;
+    background-color: rgba(15, 57, 76, 0.65)
 }
 
 main #header h1 span {
@@ -112,11 +133,11 @@ main #header h1 span {
 main #header h2 {
     font-weight: lighter;
     font-size: 2em;
+    color: #FFF;
 }
 
 main #header h1.chap-image {
     position: absolute;
-    background-color: rgba(56, 158, 164, 0.83);
 
 }
 
@@ -152,13 +173,14 @@ main #sub-header .conteneur.text {
 
 main #sub-header .conteneur.text h3 {
     margin: 0;
-    color: #8C8C8C;
+    margin-bottom: 20px;
+    color: #1d79a2;
     font-weight: lighter;
     font-size: 2.5em;
 }
 
 main #sub-header .conteneur.text span {
-    color: #BFBFBF;
+    color: #06151c;
     font-weight: lighter;
 }
 
@@ -182,7 +204,10 @@ main #sub-header .conteneur.image img {
 main #author .conteneur-1200-image {
     min-width: 30%;
     height: 456px;
-    background-color: #EFEFEF;
+    background-image: url(../../images/Qui\ je\ suis.jpg);
+    background-image: url(../../images/Qui\ je\ suis.jpg);
+    background-position: -120px;
+    background-size: cover;
 }
 
 main #author .conteneur-1200-text {
@@ -204,9 +229,10 @@ main #roman .conteneur-full {
 }
 
 main #roman .conteneur-full-text h2 span {
-    color: #BFBFBF;
+    color: #06151c;
     font-weight: lighter;
     font-size: 24px;
+    font-family: 'Maven Pro', sans-serif;
 }
 
 main #roman .conteneur-full-text .btn {
@@ -228,6 +254,7 @@ main #roman .conteneur-full-image {
     min-height: 60vh;
     background-color: #EFEFEF;
     display: flex;
+    background-image: url(../../images/route-alaska.jpg);
 }
 
 main #roman .conteneur-full-conteneur-text {
@@ -264,8 +291,8 @@ main #roman .conteneur-full-image img {
 
 /***************************************************************************************************** FORMULAIRES*/
 #form {
-    /*! width: 340px; */
-    /*! margin: 150px auto 50px; */
+    width: 1230px;
+    margin: 20px auto;
 
 }
 
@@ -295,6 +322,30 @@ main #form textarea {
     resize: none;
     width: 100%;
     height: 80px;
+}
+
+#form.connexionInscription {
+    margin: 0auto;
+    margin: 0 auto;
+    padding: 50px 2%;
+}
+
+.connexionInscription .btn.light {
+    line-height: 0;
+    margin: 20px 0;
+}
+
+input:not(.browser-default):focus {
+    border-bottom: 3px solid #1d79a2 !important;
+}
+
+input[type="submit"]:not(.browser-default):focus {
+    border-bottom: none !important;
+}
+
+main #form .row input {
+    border: none !important;
+    line-height: 0;
 }
 
 /***************************************************************************************************** ARTICLES COMMENTAIRES*/
@@ -331,6 +382,12 @@ main #form textarea {
     background-color: rgba(89, 89, 89, 0);
     color: rgb(89, 89, 89);
     height: 50px;
+}
+
+.selection {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
 }
 
 /***************************************************************************************************** MEDIA QUERIES 1024px*/
