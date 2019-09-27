@@ -75,17 +75,26 @@
             </ul>
         </nav>
         <div class="conteneur">
-            <div class="conteneur bloc">
-                <h2>Mes articles </h2>
-                <a href="back-articles.html">Voir tous les articles</a>
-                <a href="back-add-articles.html">Créer un article </a>
+            <div class="conteneur ">
+                <h2>Nouvel article</h2>
+
+                <form action="" id="form-article">
+                    <h3>Titre de l'article</h3>
+                    <input type="text" id="title" name="title" value="">
+                    <h3>Image de l'article</h3>
+                    <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+                    <h3>Résumé de l'article</h3>
+                    <textarea name="sentence" id="resume" cols="30" rows="10"></textarea>
+                    <h3>Contenu de l'article</h3>
+                    <textarea name="content" id="contenu" cols="30" rows="10"></textarea>
+                    <input type="submit" value="Envoyer">
+
+                </form>
 
 
             </div>
-
-            <div class="conteneur bloc">
-                <h2>Les commentaires</h2> <a href="back-commentaires.html">Voir tous les commentaires</a>
-                <h3>Les commentaires à modérer</h3>
+            <div class="conteneur">
+                <h2>Commentaires validés de l'article</h2>
                 <ul>
                     <li class="commentaires impaire">
                         <div class="contenuCommentaire">
@@ -93,8 +102,6 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Philosophi autem in suis lectulis plerumque </p>
                             <p>Posté le: <span>19/09/2019</span> </p>
                         </div>
-
-                        <div class="boutonModeration"><a href="http://"><i class="far fa-check-circle"></i></a> <a href="http://"><i class="far fa-times-circle"></i></a></div>
                     </li>
                     <li class="commentaires paire">
                         <div class="contenuCommentaire">
@@ -102,8 +109,6 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Philosophi autem in suis lectulis plerumque </p>
                             <p>Posté le: <span>19/09/2019</span> </p>
                         </div>
-
-                        <div class="boutonModeration"><a href="http://"><i class="far fa-check-circle"></i></a> <a href="http://"><i class="far fa-times-circle"></i></a></div>
                     </li>
                     <li class="commentaires impaire">
                         <div class="contenuCommentaire">
@@ -111,15 +116,16 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Philosophi autem in suis lectulis plerumque </p>
                             <p>Posté le: <span>19/09/2019</span> </p>
                         </div>
-
-                        <div class="boutonModeration"><a href="http://"><i class="far fa-check-circle"></i></a> <a href="http://"><i class="far fa-times-circle"></i></a></div>
                     </li>
                 </ul>
 
 
 
             </div>
+
+
         </div>
+
     </main>
 
 </body>

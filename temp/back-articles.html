@@ -36,12 +36,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script type="text/javascript" src="assets/js/scripts.js"></script>
-<script src="https://cdn.tiny.cloud/1/secl860f7vyai9nvfex20qb7przn9g1hawk1rfjl96jfnzmy/tinymce/5/tinymce.min.js"></script>
-<script>
-    tinymce.init({
-        selector: 'textarea'
-    });
-</script>
+
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -77,49 +72,61 @@
         <div class="conteneur">
             <div class="conteneur bloc">
                 <h2>Mes articles </h2>
-                <a href="back-articles.html">Voir tous les articles</a>
                 <a href="back-add-articles.html">Créer un article </a>
 
-
-            </div>
-
-            <div class="conteneur bloc">
-                <h2>Les commentaires</h2> <a href="back-commentaires.html">Voir tous les commentaires</a>
-                <h3>Les commentaires à modérer</h3>
                 <ul>
                     <li class="commentaires impaire">
                         <div class="contenuCommentaire">
-                            <h4>Titre commentaire</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Philosophi autem in suis lectulis plerumque </p>
-                            <p>Posté le: <span>19/09/2019</span> </p>
+                            <div class="flex">
+                                <h4>Titre article</h4>
+                                <p>Créé le: <span>19/09/2019</span> </p>
+                            </div>
+                            <div class="lien-article">
+                                <a href="#" target="_blank">Voir l'article</a><a href="http://">Modifier</a><a href="http://">Supprimer</a>
+                            </div>
                         </div>
-
-                        <div class="boutonModeration"><a href="http://"><i class="far fa-check-circle"></i></a> <a href="http://"><i class="far fa-times-circle"></i></a></div>
                     </li>
                     <li class="commentaires paire">
                         <div class="contenuCommentaire">
-                            <h4>Titre commentaire</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Philosophi autem in suis lectulis plerumque </p>
-                            <p>Posté le: <span>19/09/2019</span> </p>
+                            <div class="flex">
+                                <h4>Titre article</h4>
+                                <p>Créé le: <span>19/09/2019</span> </p>
+                            </div>
+                            <div class="lien-article">
+                                <a href="http://" target="_blank">Voir l'article</a><a href="http://">Modifier</a><a href="http://">Supprimer</a>
+                            </div>
                         </div>
-
-                        <div class="boutonModeration"><a href="http://"><i class="far fa-check-circle"></i></a> <a href="http://"><i class="far fa-times-circle"></i></a></div>
                     </li>
                     <li class="commentaires impaire">
                         <div class="contenuCommentaire">
-                            <h4>Titre commentaire</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Philosophi autem in suis lectulis plerumque </p>
-                            <p>Posté le: <span>19/09/2019</span> </p>
+                            <div class="flex">
+                                <h4>Titre article</h4>
+                                <p>Créé le: <span>19/09/2019</span> </p>
+                            </div>
+                            <div class="lien-article">
+                                <a href="http://" target="_blank">Voir l'article</a><a href="http://">Modifier</a><a href="http://">Supprimer</a>
+                            </div>
                         </div>
-
-                        <div class="boutonModeration"><a href="http://"><i class="far fa-check-circle"></i></a> <a href="http://"><i class="far fa-times-circle"></i></a></div>
+                    </li>
+                    <li class="commentaires paire">
+                        <div class="contenuCommentaire">
+                            <div class="flex">
+                                <h4>Titre article</h4>
+                                <p>Créé le: <span>19/09/2019</span> </p>
+                            </div>
+                            <div class="lien-article">
+                                <a href="http://" target="_blank">Voir l'article</a><a href="http://">Modifier</a><a href="http://">Supprimer</a>
+                            </div>
+                        </div>
                     </li>
                 </ul>
 
 
-
             </div>
+
+
         </div>
+
     </main>
 
 </body>
