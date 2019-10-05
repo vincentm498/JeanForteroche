@@ -14,7 +14,7 @@
             <div class="chapitre">
                 <div class="conteneur text">
                     <h3><?= $lastArticle['title'] ?></h3>
-                    <span><?= date_format(date_create($lastArticle['date']), "d/m/Y H:i") ?></span>
+                    <span><?= date_format(date_create($lastArticle['date_post']), "d/m/Y H:i") ?></span>
                     <p><?= $lastArticle['content'] ?></p>
                     <a class="btn" href="index.php?action=article&amp;id=<?= $lastArticle['id'] ?>">Lire ...</a>
                 </div>

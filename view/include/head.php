@@ -28,6 +28,7 @@
 <link rel="stylesheet" href="assets/styles/css/header.css">
 <link rel="stylesheet" href="assets/styles/css/footer.css">
 <link rel="stylesheet" href="assets/styles/css/content.css">
+<link rel="stylesheet" href="assets/styles/css/back.css">
 <!-- <link rel="stylesheet" href="assets/styles/css/responsive.css"> -->
 <!-- <link rel="stylesheet" href="assets/styles/css/styles.css"> -->
 <link rel="stylesheet" href="assets/styles/css/style.css">
@@ -36,7 +37,9 @@
 <!-- JS Files -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/secl860f7vyai9nvfex20qb7przn9g1hawk1rfjl96jfnzmy/tinymce/5/tinymce.min.js"></script>
 <script type="text/javascript" src="assets/js/scripts.js"></script>
+
 
 <!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

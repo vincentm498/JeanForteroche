@@ -1,0 +1,307 @@
+#back-office {
+    margin: initial;
+    padding: initial;
+}
+
+#back-office header {
+
+    z-index: inherit;
+    position: inherit;
+    width: initial;
+    background-color: initial;
+    top: initial;
+
+}
+
+#back-office a {
+    color: #2fa3d7;
+}
+
+#back-office .barreTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    height: 5vh;
+    min-height: 50px;
+    padding: 0 5%;
+    color: #003253;
+    /*! border-bottom: 1px solid #003253; */
+    box-shadow: black 1px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+#back-office .barreTop button {
+    padding: 10px 25px;
+    border-radius: 100px;
+    border: 0;
+}
+
+#back-office .barreTop span.user {
+    font-weight: 800;
+    text-transform-article: uppercase;
+    color: #2fa3d7;
+}
+
+#back-office main {
+    display: flex;
+}
+
+#back-office main nav {
+    width: 14vw;
+    min-width: 200px;
+    height: auto;
+    background-color: #003253;
+    /*! color: #FFF; */
+
+    min-height: 94.8vh;
+}
+
+#back-office main nav li {
+    width: 14vw;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#back-office main nav a {
+    color: #FFF;
+    width: 100%;
+    text-align: left;
+    text-transform-article: uppercase;
+}
+
+#back-office main .conteneur {
+
+    flex: 1;
+    padding: 20px 30px
+}
+
+#back-office main .conteneur.bloc {
+
+    border: 1px solid black;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+#back-office main h2 {
+    font-size: 1.8em;
+    font-weight: 500;
+    margin: 10px 0;
+    text-transform-article: uppercase;
+    padding: 0 20px;
+    text-align: left;
+    line-height: initial;
+    max-width: none;
+}
+
+#back-office main a {
+
+    padding: 0 20px;
+}
+
+#back-office main h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    font-weight: 200;
+    padding: 0 20px;
+}
+
+#back-office main .conteneur.bloc li.commentaires {
+
+    display: flex;
+
+}
+
+#back-office main .conteneur.bloc li.commentaires.impaire {
+    background-color: #edf9ff;
+    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+}
+
+#back-office main .conteneur.bloc li.commentaires.paire {
+    background-color: #f4fcfb;
+    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+}
+
+#back-office li.commentaires h4 {
+    font-weight: 700;
+    text-transform-article: uppercase;
+    color: #2fa3d7;
+    font-size: 1.2em;
+    padding: 0 20px;
+    margin-top: 15px;
+}
+
+#back-office li.commentaires p {
+
+    padding: 0 20px;
+    max-width: none;
+    margin: 15px 0;
+}
+
+#back-office li.commentaires p span {
+    font-weight: 700;
+    color: #2fa3d7;
+}
+
+#back-office .conteneur.bloc ul {
+    margin: 0;
+}
+
+#back-office .boutonModeration {
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+
+}
+
+#back-office .boutonModeration a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+#back-office .boutonModeration a .fa-check-circle {
+    color: green;
+
+}
+
+#back-office .boutonModeration a .fa-times-circle {
+    color: red;
+
+}
+
+#back-office .contenuCommentaire {
+    width: 100%
+}
+
+#back-office nav .far {
+    font-size: 1.5em;
+    padding: 0 10px;
+    position: relative;
+    top: 2px;
+}
+
+#back-office nav ul a:hover {
+    background-color: #2fa3d7;
+}
+
+#back-office .barreTop button:hover {
+
+    background-color: #003253;
+    color: #FFF
+}
+
+#back-office a:hover {
+    color: #003253;
+}
+
+#back-office .lien-article {
+    padding: 0 0 0 10px;
+    margin: -10px 0 20px 0
+}
+
+#back-office .lien-article a {
+    padding: 0 10px
+}
+
+#back-office .flex {
+    display: flex;
+}
+
+#back-office #form-article {
+    width: 1230px;
+    margin: 20px auto;
+
+}
+
+
+#back-office #form-article-article .row {
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#back-office #form-article .row input,
+#back-office #form-article textarea {
+
+    padding: 5px 30px;
+    border: 1px solid black;
+    font-size: 14px;
+    margin: 10px 20px;
+}
+
+#back-office #form-article .btn {
+    margin: auto;
+}
+
+#back-office #form-article textarea {
+    resize: none;
+    width: 100%;
+    height: 80px;
+}
+
+#back-office #form-article.connexionInscription {
+    margin: 0auto;
+    margin: 0 auto;
+    padding: 50px 2%;
+}
+
+#back-office .connexionInscription .btn.light {
+    line-height: 0;
+    margin: 20px 0;
+}
+
+#back-office input:not(.browser-default):focus {
+    border-bottom: 3px solid #1d79a2 !important;
+}
+
+#back-office input[type="submit"]:not(.browser-default):focus {
+    border-bottom: none !important;
+}
+
+#back-office #form-article .row input {
+    border: none !important;
+    line-height: 0;
+}
+
+#back-office input[type="submit"] {
+    line-height: 0;
+    margin: 20px 0;
+    display: initial;
+    background-color: #1d79a2;
+    padding: 18px 30px;
+    border-radius: 31px;
+    box-shadow: none;
+    color: #FFF;
+    border: none;
+}
+
+#back-office #form-article h3 {
+
+    padding-left: 0;
+    color: #1d79a2;
+
+    margin-top: 28px;
+}
+
+#back-office .tox-tinymce {
+    resize: none;
+
+}
+
+#back-office #form-article #contenu {
+    resize: none;
+
+}

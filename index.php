@@ -6,6 +6,7 @@ ini_set('display_errors', 1);
 require "vendor/autoload.php";
 
 use JeanForteroche\controller\Articles_controller;
+use JeanForteroche\controller\Back_controller;
 use JeanForteroche\controller\Comments_controller;
 use JeanForteroche\controller\Members_controller;
 use JeanForteroche\controller\Controller;
@@ -82,6 +83,38 @@ switch ($action) {
         $members->inscription();
 
         break;
+
+    case 'back':
+        $adminBack = new Back_controller;
+        $adminBack->dashboard();
+
+        break;
+
+    case 'backArticles':
+        $adminBack = new Back_controller;
+        $adminBack->backArticles();
+
+        break;
+
+    case 'AddArticles':
+        $adminBack = new Back_controller;
+        $adminBack->AddArticles();
+
+        break;
+
+    case 'AddArticlesSubmit':
+        $article = new Articles_controller;
+        $article->addArticle();
+
+        break;
+
+    case 'DeleteArticles':
+        $article = new Articles_controller;
+        $article->deleteArticle();
+
+        break;
+
+
 
         // Affichage de la home
     default:

@@ -55,7 +55,7 @@ require 'view/include/header.php';
                             <?= $comment['pseudo'] ?>
                             Le: <?= date_format(date_create($comment['date_post']), "d/m/Y H:i") ?>
 
-                            <a href="#"><i class="fas fa-exclamation-circle"></i></a>
+                            <a href="index.php?action=reportComment"><i class="fas fa-exclamation-circle"></i></a>
                             <p><?= $comment['post'] ?></p>
                         </div>
                 <?php endforeach;

@@ -31,4 +31,25 @@ class Articles extends Connect
 
         return $article->fetch();
     }
+
+    // Ajoute l'article
+    public function postArticle($title, $sentence, $content)
+    {
+
+        $db = $this->dbConnect();
+        $article = $db->prepare('INSERT INTO articles(title, sentence, content, date_post) VALUES(?, ?, ?, NOW())');
+        //INSERT INTO articles(title, sentence, content, date_post) VALUES('test2', 'test2', 'test2', NOW())
+        $article->execute(array($title, $sentence, $content));
+
+        //return $db->lastInsertId();
+    }
+
+    // Supprimer  l'article
+    public function deleteArticle($id)
+    {
+
+        $db = $this->dbConnect();
+        $article = $db->prepare('DELETE FROM articles WHERE id = ?');
+        $article->execute(array($id));
+    }
 }

@@ -41,15 +41,27 @@ class Articles_controller extends Controller
         // Affichage
         require 'view/article_view.php';
     }
+
+    //Ajout de l'article
+    public function addArticle()
+    {
+
+        $articlesModel = new Articles();
+        $title = $_POST['title'];
+        $sentence = $_POST['sentence'];
+        $content = $_POST['content'];
+
+        $addArticle = $articlesModel->postArticle($title, $sentence, $content);
+        require 'view/backAddArticles_view.php';
+    }
+
+    //Suppression de l'article
+    public function deleteArticle()
+    {
+        $articlesModel = new Articles();
+        $article = $articlesModel->deleteArticle($_GET['id']);
+
+        header('Location: index.php?action=back');
+        $this->setFlash("Article supprimé", 'red');
+    }
 }
-
-
-
-// function formConnect()
-// {
-//     $articlesModel = new \Blog\Articles();
-//     $articles = $articlesModel->getAllArticles();
-
-//     // Affichage
-//     require 'view/form_view.php';
-// }
