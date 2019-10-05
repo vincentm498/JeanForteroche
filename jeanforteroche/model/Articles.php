@@ -38,7 +38,6 @@ class Articles extends Connect
 
         $db = $this->dbConnect();
         $article = $db->prepare('INSERT INTO articles(title, sentence, content, date_post) VALUES(?, ?, ?, NOW())');
-        //INSERT INTO articles(title, sentence, content, date_post) VALUES('test2', 'test2', 'test2', NOW())
         $article->execute(array($title, $sentence, $content));
 
         //return $db->lastInsertId();
@@ -50,6 +49,30 @@ class Articles extends Connect
 
         $db = $this->dbConnect();
         $article = $db->prepare('DELETE FROM articles WHERE id = ?');
+        $article->execute(array($id));
+    }
+
+    // Modifs de  l'article
+    public function modifArticle($id)
+    {
+
+        $db = $this->dbConnect();
+        $article = $db->prepare('SELECT * FROM articles WHERE id = ?');
+        $article->execute(array($id));
+
+        return $article->fetch();
+    }
+
+    // Update de  l'article
+    public function updateArticle($id, $title, $sentence, $content)
+    {
+
+        $db = $this->dbConnect();
+        $article = $db->prepare('UPDATE `articles` 
+        SET `title`="' . $title . '",
+        `sentence`="' . $sentence . '",
+        `content`="' . $content . '"
+        WHERE id = ?');
         $article->execute(array($id));
     }
 }

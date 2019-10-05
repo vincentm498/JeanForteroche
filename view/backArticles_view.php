@@ -43,9 +43,10 @@
                                 </div>
                                 <div class="lien-article">
                                     <a href="index.php?action=article&id=<?= $article['id'] ?>" target="_blank">Voir l'article</a>
-                                    <a href="http://">Modifier</a>
+                                    <a href="index.php?action=modifArticle&id=<?= $article['id'] ?>">Modifier</a>
                                     <!-- <a href="#" onclick="changeLink()" id="supprimer">Supprimer</a> -->
                                     <a href="index.php?action=DeleteArticles&id=<?= $article['id'] ?>" id="supprimer">Supprimer</a>
+
                                 </div>
                             </div>
                         </li>

@@ -114,6 +114,18 @@ switch ($action) {
 
         break;
 
+    case 'modifArticle':
+        $article = new Articles_controller;
+        $article->modifArticle();
+
+        break;
+
+    case 'updateArticle':
+        $article = new Articles_controller;
+        $article->updateArticle();
+
+        break;
+
 
 
         // Affichage de la home
