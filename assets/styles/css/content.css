@@ -255,6 +255,8 @@ main #roman .conteneur-full-image {
     background-color: #EFEFEF;
     display: flex;
     background-image: url(../../images/route-alaska.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 main #roman .conteneur-full-conteneur-text {

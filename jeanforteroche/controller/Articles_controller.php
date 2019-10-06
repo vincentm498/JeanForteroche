@@ -52,7 +52,7 @@ class Articles_controller extends Controller
         $content = $_POST['content'];
 
         $addArticle = $articlesModel->postArticle($title, $sentence, $content);
-        //$this->setFlash("Article ajouté", 'green');
+        $this->setFlash("Article ajouté", 'green');
         require 'view/backAddArticles_view.php';
     }
 
@@ -63,7 +63,7 @@ class Articles_controller extends Controller
         $article = $articlesModel->deleteArticle($_GET['id']);
 
         header('Location: index.php?action=backArticles');
-        //$this->setFlash("Article supprimé", 'red');
+        $this->setFlash("Article supprimé", 'red');
     }
 
     //Modification de l'article
@@ -84,6 +84,7 @@ class Articles_controller extends Controller
         $content = $_POST['content'];
         $article = $articlesModel->updateArticle($_GET['id'], $title, $sentence, $content);
 
+        $this->setFlash("Article modifié", 'green');
         header('Location: index.php?action=backArticles');
     }
 }

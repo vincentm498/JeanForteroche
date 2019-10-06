@@ -8,18 +8,7 @@
 </script>
 
 <body id="back-office">
-    <header>
-        <div class="barreTop">
-            <div class="conteneur">
-                Bienvenue sur votre espace: <span class="user">Admin</span>
-            </div>
-            <div class="conteneur">
-                <a href="index.php">Retour au site</a>
-                <button>Se déconnecter</button>
-            </div>
-        </div>
-
-    </header>
+    <?php require 'view/include/header-back.php' ?>
 
     <main>
         <nav>
