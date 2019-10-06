@@ -38,7 +38,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://cdn.tiny.cloud/1/secl860f7vyai9nvfex20qb7przn9g1hawk1rfjl96jfnzmy/tinymce/5/tinymce.min.js"></script>
-<script type="text/javascript" src="assets/js/scripts.js"></script>
+<!-- <script type="text/javascript" src="assets/js/scripts.js"></script> -->
 
 
 <!--Import Google Icon Font-->
