@@ -8,7 +8,7 @@
             </div>
             <div class="conteneur">
                 <a href="index.php">Retour au site</a>
-                <button>Se déconnecter</button>
+                <a class="btn" href="index.php?action=deconnexion">Me déconnecter</a>
             </div>
         </div>
         <?php
