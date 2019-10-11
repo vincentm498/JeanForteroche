@@ -2,7 +2,9 @@
     <header>
         <div class="barreTop">
             <div class="conteneur">
-                Bienvenue sur votre espace: <span class="user">Admin</span>
+
+                Bienvenue sur votre espace: <span class="user"><?= $_SESSION['membrePseudo'] ?></span>
+
             </div>
             <div class="conteneur">
                 <a href="index.php">Retour au site</a>

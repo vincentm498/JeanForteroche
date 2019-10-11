@@ -137,6 +137,9 @@ class Members_controller extends Controller
                         // Connexion
                         $url = 'index.php?action=article&id=' . $articleId;
                         $_SESSION['membreID'] = $verifMember['id'];
+                        $_SESSION['membreGroupe'] = $verifMember['id_groupe'];
+                        $_SESSION['membrePseudo'] = $verifMember['pseudo'];
+
                         $this->setFlash("Connecté", 'green');
                     } else {
                         $this->setFlash("Email ou mot de passe incorrect", 'red');

@@ -15,10 +15,13 @@ class Back_controller extends Controller
         $articles = $articlesModel->getAllArticles();
         $commentsModel = new Comments();
         $comments = $commentsModel->getAllCommentsBlog();
-        // var_dump($comments);
-        // exit;
-        // Affichage
-        require 'view/back_view.php';
+
+        if ($_SESSION['membreGroupe'] == 1) {
+            require 'view/back_view.php';
+        } else {
+
+            header('Location: index.php?action=connexion');
+        }
     }
 
     public function backArticles()
@@ -26,22 +29,6 @@ class Back_controller extends Controller
         $articlesModel = new Articles();
         $articles = $articlesModel->getAllArticles();
 
-        // var_dump($articles);
-        // exit;
-        // Affichage
         require 'view/backArticles_view.php';
     }
-
-    // public function AddArticles()
-    // {
-
-    //     $commentsModel = new Comments();
-    //     $comments = $commentsModel->getAllCommentsArticleValidate();
-
-
-    //     // var_dump($articles);
-    //     // exit;
-    //     // Affichage
-    //     require 'view/backAddArticles_view.php';
-    // }
 }

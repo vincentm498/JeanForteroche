@@ -54,19 +54,22 @@ class Comments extends Connect
     public function signalComment($id)
     {
         $db = $this->dbConnect();
-        $comments = $db->query('UPDATE `post` SET `report`= 1 WHERE comment_id = "' . $id . '"');
+        $comments = $db->prepare('UPDATE `post` SET `report`= 1 WHERE comment_id = ?');
+        $comments->execute(array($id));
     }
 
 
     public function signalValideComment($id)
     {
         $db = $this->dbConnect();
-        $commentValide = $db->query('UPDATE `post` SET `report`= 2 WHERE comment_id = "' . $id . '"');
+        $commentValide = $db->prepare('UPDATE `post` SET `report`= 2 WHERE comment_id = ?');
+        $commentValide->execute(array($id));
     }
 
     public function signalRefusComment($id)
     {
         $db = $this->dbConnect();
-        $commentValide = $db->query('DELETE FROM `post` WHERE comment_id = "' . $id . '"');
+        $commentRefus = $db->prepare('DELETE FROM `post` WHERE comment_id = ?');
+        $commentRefus->execute(array($id));
     }
 }
