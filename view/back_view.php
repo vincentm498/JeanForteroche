@@ -14,9 +14,7 @@
                 <li>
                     <a href="index.php?action=backArticles"><i class="far fa-file-alt"></i>Articles</a>
                 </li>
-                <li>
-                    <a href="back-commentaires.html"><i class="far fa-comment"></i>Commentaires</a>
-                </li>
+
             </ul>
         </nav>
         <div class="conteneur">
@@ -39,8 +37,8 @@
                                 <p>Posté le: <span><?= date_format(date_create($comment['date_post']), "d/m/Y H:i") ?></span> </p>
                             </div>
                             <div class="boutonModeration">
-                                <a href="http://"><i class="far fa-check-circle"></i></a>
-                                <a href="http://"><i class="far fa-times-circle"></i></a>
+                                <a href="index.php?action=signalValideComment&amp;id=<?= $comment['id_post'] ?>"><i class="far fa-check-circle"></i></a>
+                                <a href="index.php?action=signalRefusComment&amp;id=<?= $comment['id_post'] ?>"><i class="far fa-times-circle"></i></a>
                             </div>
                         </li>
                     <?php endforeach; ?>

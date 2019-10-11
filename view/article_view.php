@@ -49,13 +49,17 @@ require 'view/include/header.php';
             <div class="comments">
 
                 <?php
+
                 if (!empty($comments)) {
+
                     foreach ($comments as $index => $comment) : ?>
                         <div class="comment">
-                            <?= $comment['pseudo'] ?>
+                            <?= $comment['pseudo']; ?>
                             Le: <?= date_format(date_create($comment['date_post']), "d/m/Y H:i") ?>
-
-                            <a href="index.php?action=reportComment"><i class="fas fa-exclamation-circle"></i></a>
+                            <?php
+                                    if ($comment['report'] == 0) { ?>
+                                <a href="index.php?action=signalComment&amp;id=<?= $comment['comment_id'] ?>"><i class="fas fa-exclamation-circle"></i></a>
+                            <?php } ?>
                             <p><?= $comment['post'] ?></p>
                         </div>
                 <?php endforeach;

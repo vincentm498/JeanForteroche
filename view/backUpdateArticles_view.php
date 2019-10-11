@@ -19,9 +19,7 @@
                 <li>
                     <a href="index.php?action=backArticles"><i class="far fa-file-alt"></i>Articles</a>
                 </li>
-                <li>
-                    <a href="back-commentaires.html"><i class="far fa-comment"></i>Commentaires</a>
-                </li>
+
             </ul>
         </nav>
         <div class="conteneur">
@@ -44,26 +42,7 @@
                 </div>
             </div>
 
-            <?php if (1 == 2) { ?>
 
-                <div class="conteneur">
-                    <h2>Commentaires validés de l'article</h2>
-                    <ul>
-                        <?php
-                            foreach ($comments as $index => $comment) : ?>
-                            <li class="commentaires impaire">
-                                <div class="contenuCommentaire">
-                                    <h4>members_id<?= $comment['members_id'] ?></h4>
-                                    <p><?= $comment['post'] ?></p>
-                                    <p>Posté le: <span><?= date_format(date_create($comment['date_post']), "d/m/Y H:i") ?></span> </p>
-                                </div>
-
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-
-            <?php } ?>
         </div>
     </main>
 

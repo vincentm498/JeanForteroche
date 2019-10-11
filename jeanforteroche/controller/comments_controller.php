@@ -24,4 +24,34 @@ class Comments_controller  extends Controller
             header('Location: index.php?action=article&id=' . $articleId);
         }
     }
+
+    //Signal d'un commentaire 
+    public function signalComment()
+    {
+        $commentsModel = new Comments();
+        $signalComment = $commentsModel->signalComment($_GET['id']);
+
+        header('Location: index.php');
+        $this->setFlash("Commentaire signalé", 'green');
+    }
+
+
+    //Signal d'un commentaire valide
+    public function signalValideComment()
+    {
+
+        $commentsModel = new Comments();
+        $signalComment = $commentsModel->signalValideComment($_GET['id']);
+        header('Location: index.php?action=back');
+        $this->setFlash("Commentaire validé", 'green');
+    }
+
+    //Supprimer un commentaire
+    public function signalRefusComment()
+    {
+        $commentsModel = new Comments();
+        $signalComment = $commentsModel->signalRefusComment($_GET['id']);
+        header('Location: index.php?action=back');
+        $this->setFlash("Commentaire Supprimé", 'green');
+    }
 }

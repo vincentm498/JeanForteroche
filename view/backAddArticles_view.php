@@ -19,9 +19,7 @@
                 <li>
                     <a href="index.php?action=backArticles"><i class="far fa-file-alt"></i>Articles</a>
                 </li>
-                <li>
-                    <a href="back-commentaires.html"><i class="far fa-comment"></i>Commentaires</a>
-                </li>
+
             </ul>
         </nav>
         <div class="conteneur">

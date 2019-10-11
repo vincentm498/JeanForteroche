@@ -42,8 +42,14 @@ class Articles_controller extends Controller
         require 'view/article_view.php';
     }
 
-    //Ajout de l'article
+    //Affichae du nouvel l'article
     public function addArticle()
+    {
+        require 'view/backAddArticles_view.php';
+    }
+
+    //Ajout de l'article
+    public function addArticleSubmit()
     {
 
         $articlesModel = new Articles();

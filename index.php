@@ -97,14 +97,14 @@ switch ($action) {
         break;
 
     case 'AddArticles':
-        $adminBack = new Back_controller;
-        $adminBack->AddArticles();
+        $adminBack = new Articles_controller;
+        $adminBack->addArticle();
 
         break;
 
     case 'AddArticlesSubmit':
         $article = new Articles_controller;
-        $article->addArticle();
+        $article->addArticleSubmit();
 
         break;
 
@@ -123,6 +123,27 @@ switch ($action) {
     case 'updateArticle':
         $article = new Articles_controller;
         $article->updateArticle();
+
+        break;
+
+    case 'signalComment':
+
+        $comment = new Comments_controller;
+        $comment->signalComment();
+
+        break;
+
+    case 'signalValideComment':
+
+        $comment = new Comments_controller;
+        $comment->signalValideComment();
+
+        break;
+
+    case 'signalRefusComment':
+
+        $comment = new Comments_controller;
+        $comment->signalRefusComment();
 
         break;
 

@@ -24,7 +24,7 @@ class Comments extends Connect
     public function postComment($articleId, $membreID, $comment)
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('INSERT INTO post(post_id, members_id, post, date_post) VALUES(?, ?, ?, NOW())');
+        $comments = $db->prepare('INSERT INTO post(post_id, members_id, post, date_post, report) VALUES(?, ?, ?, NOW(), 0)');
         $comments->execute(array($articleId, $membreID, $comment));
         return $comments->fetchAll();
     }
@@ -32,7 +32,7 @@ class Comments extends Connect
     public function getAllCommentsBlog()
     {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT p.id AS id_post, p.post , p.date_post, m.id AS id_member , m.pseudo
+        $comments = $db->prepare('SELECT p.comment_id AS id_post, p.post , p.date_post, m.id AS id_member , m.pseudo
         FROM post as p
         INNER JOIN members as m ON m.id = p.members_id
         WHERE p.report = 1
@@ -49,5 +49,24 @@ class Comments extends Connect
         $db = $this->dbConnect();
         $comments = $db->query('SELECT * FROM post ORDER BY id ASC');
         return $comments->fetchAll();
+    }
+
+    public function signalComment($id)
+    {
+        $db = $this->dbConnect();
+        $comments = $db->query('UPDATE `post` SET `report`= 1 WHERE comment_id = "' . $id . '"');
+    }
+
+
+    public function signalValideComment($id)
+    {
+        $db = $this->dbConnect();
+        $commentValide = $db->query('UPDATE `post` SET `report`= 2 WHERE comment_id = "' . $id . '"');
+    }
+
+    public function signalRefusComment($id)
+    {
+        $db = $this->dbConnect();
+        $commentValide = $db->query('DELETE FROM `post` WHERE comment_id = "' . $id . '"');
     }
 }

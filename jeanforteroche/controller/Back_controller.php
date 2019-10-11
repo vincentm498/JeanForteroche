@@ -32,16 +32,16 @@ class Back_controller extends Controller
         require 'view/backArticles_view.php';
     }
 
-    public function AddArticles()
-    {
+    // public function AddArticles()
+    // {
 
-        $commentsModel = new Comments();
-        $comments = $commentsModel->getAllCommentsArticleValidate();
+    //     $commentsModel = new Comments();
+    //     $comments = $commentsModel->getAllCommentsArticleValidate();
 
 
-        // var_dump($articles);
-        // exit;
-        // Affichage
-        require 'view/backAddArticles_view.php';
-    }
+    //     // var_dump($articles);
+    //     // exit;
+    //     // Affichage
+    //     require 'view/backAddArticles_view.php';
+    // }
 }
