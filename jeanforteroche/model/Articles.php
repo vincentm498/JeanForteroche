@@ -33,12 +33,12 @@ class Articles extends Connect
     }
 
     // Ajoute l'article
-    public function postArticle($title, $sentence, $content)
+    public function postArticle($title, $sentence, $content, $uploadfile)
     {
 
         $db = $this->dbConnect();
-        $article = $db->prepare('INSERT INTO articles(title, sentence, content, date_post) VALUES(?, ?, ?, NOW())');
-        $article->execute(array($title, $sentence, $content));
+        $article = $db->prepare('INSERT INTO articles(title, sentence, content, date_post, lien_image1) VALUES(?, ?, ?, NOW(), ?)');
+        $article->execute(array($title, $sentence, $content, $uploadfile));
 
         //return $db->lastInsertId();
     }

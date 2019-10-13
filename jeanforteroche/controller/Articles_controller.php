@@ -57,7 +57,12 @@ class Articles_controller extends Controller
         $sentence = $_POST['sentence'];
         $content = $_POST['content'];
 
-        $addArticle = $articlesModel->postArticle($title, $sentence, $content);
+
+        $uploaddir = "./assets/images/";
+        $uploadfile       = $uploaddir . basename($_FILES['userfile']['name']);
+        $movefile = move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
+
+        $addArticle = $articlesModel->postArticle($title, $sentence, $content, $uploadfile);
         $this->setFlash("Article ajouté", 'green');
         require 'view/backAddArticles_view.php';
     }
