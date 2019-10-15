@@ -6,7 +6,7 @@ namespace JeanForteroche\controller;
 use JeanForteroche\model\Members;
 use JeanForteroche\model\Articles;
 
-class Members_controller extends Controller
+class MembersController extends Controller
 {
 
     public function __construct()
@@ -89,7 +89,7 @@ class Members_controller extends Controller
             $id = $_GET['id'];
         }
         // Affichage
-        require 'view/connexion_view.php';
+        require 'view/connexion-view.php';
     }
 
     // Page Inscription de membre
@@ -100,7 +100,7 @@ class Members_controller extends Controller
             $id = $_GET['id'];
         }
         // Affichage
-        require 'view/inscription_view.php';
+        require 'view/inscription-view.php';
     }
 
     public function verifMember()

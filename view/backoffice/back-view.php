@@ -14,7 +14,6 @@
                 <li>
                     <a href="index.php?action=backArticles"><i class="far fa-file-alt"></i>Articles</a>
                 </li>
-
             </ul>
         </nav>
         <div class="conteneur">
@@ -43,11 +42,7 @@
                         </li>
                     <?php endforeach; ?>
                 </ul>
-
-
-
             </div>
         </div>
     </main>
-
 </body>

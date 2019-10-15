@@ -4,7 +4,7 @@ namespace JeanForteroche\controller;
 
 use JeanForteroche\model\Comments;
 
-class Comments_controller  extends Controller
+class CommentsController  extends Controller
 {
 
     //Ajout d'un commentaire 

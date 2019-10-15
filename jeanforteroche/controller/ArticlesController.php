@@ -5,7 +5,7 @@ namespace JeanForteroche\controller;
 use JeanForteroche\model\Articles;
 use JeanForteroche\model\Comments;
 
-class Articles_controller extends Controller
+class ArticlesController extends Controller
 {
     //Affichage de la home, deux derniers articles
     public function homeView()
@@ -15,7 +15,7 @@ class Articles_controller extends Controller
         $articles = $articlesModel->getAllArticles();
 
         // Affichage
-        require 'view/home_view.php';
+        require 'view/home-view.php';
     }
 
     //Affichage de la page roman, tous les articles.
@@ -25,7 +25,7 @@ class Articles_controller extends Controller
         $articles = $articlesModel->getAllArticles();
 
         // Affichage
-        require 'view/roman_view.php';
+        require 'view/roman-view.php';
     }
 
     //Affichage de l'article
@@ -39,13 +39,13 @@ class Articles_controller extends Controller
         $comments = $commentsModel->getAllComments($_GET['id']);
 
         // Affichage
-        require 'view/article_view.php';
+        require 'view/article-view.php';
     }
 
     //Affichae du nouvel l'article
     public function addArticle()
     {
-        require 'view/backAddArticles_view.php';
+        require 'view/backoffice/add-articles-view.php';
     }
 
     //Ajout de l'article
@@ -64,7 +64,7 @@ class Articles_controller extends Controller
 
         $addArticle = $articlesModel->postArticle($title, $sentence, $content, $uploadfile);
         $this->setFlash("Article ajouté", 'green');
-        require 'view/backAddArticles_view.php';
+        require 'view/backoffice/add-articles-view.php';
     }
 
     //Suppression de l'article
@@ -83,7 +83,7 @@ class Articles_controller extends Controller
         $articlesModel = new Articles();
         $article = $articlesModel->modifArticle($_GET['id']);
 
-        require 'view/backUpdateArticles_view.php';
+        require 'view/backoffice/update-articles-view.php';
     }
 
     //Mise à jour de l'article

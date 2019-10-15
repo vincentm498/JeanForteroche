@@ -6,7 +6,7 @@ use JeanForteroche\model\Articles;
 use JeanForteroche\model\Comments;
 
 
-class Back_controller extends Controller
+class BackController extends Controller
 {
 
     public function dashboard()
@@ -17,7 +17,7 @@ class Back_controller extends Controller
         $comments = $commentsModel->getAllCommentsBlog();
 
         if ($_SESSION['membreGroupe'] == 1) {
-            require 'view/back_view.php';
+            require 'view/backoffice/back-view.php';
         } else {
 
             header('Location: index.php?action=connexion');
@@ -29,6 +29,6 @@ class Back_controller extends Controller
         $articlesModel = new Articles();
         $articles = $articlesModel->getAllArticles();
 
-        require 'view/backArticles_view.php';
+        require 'view/backoffice/articles-view.php';
     }
 }

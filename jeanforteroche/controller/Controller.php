@@ -18,7 +18,7 @@ class Controller
         $articles = $articlesModel->getAllArticles();
 
         // Affichage
-        require 'view/mentions_view.php';
+        require 'view/mentions-view.php';
     }
 
     // Ouverture d'une session
