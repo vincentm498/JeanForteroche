@@ -53,7 +53,12 @@ p {
 .conteneur-1200 {
     max-width: 1200px;
     margin: 100px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
@@ -86,16 +91,46 @@ main #roman {
 
 
 .btn {
-    display: initial;
     background-color: #1d79a2;
     padding: 10px 30px;
     border-radius: 31px;
+    -webkit-box-shadow: none;
     box-shadow: none;
+    margin: 10px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 200px;
 }
 
 .btn:hover {
+    -webkit-box-shadow: none;
     box-shadow: none;
     background-color: #06151c;
+    color: #FFF;
+}
+
+.selection .btn {
+    margin: 10px auto;
+}
+
+#back-office .btn {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    color: #FFF;
+    line-height: 0;
+}
+
+#back-office .btn:hover {
     color: #FFF;
 }
 
@@ -105,13 +140,33 @@ main #header {
     width: 100%;
     height: 610px;
     background-image: url(../../images/Header.png);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     color: #FFF;
     text-transform: uppercase;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    background-size: cover;
+}
+
+main #header.article {
+    height: initial;
+}
+
+
+main #header.roman {
+    height: calc(50vh - 94px);
 }
 
 main #header h1 {
@@ -142,21 +197,29 @@ main #header h1.chap-image {
 }
 
 main #header img {
+    -o-object-fit: cover;
     object-fit: cover;
     min-width: 100%;
     max-height: 610px;
+    -webkit-filter: grayscale(50%);
     filter: grayscale(50%);
 }
 
 /***************************************************************************************************** HOME SUB-HEADER*/
 
 main #sub-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
 main #sub-header .chapitre {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     width: 50%;
 }
@@ -164,6 +227,7 @@ main #sub-header .chapitre {
 main #sub-header .conteneur {
     width: 50%;
     background-color: #EFEFEF;
+    max-height: 500px;
 }
 
 main #sub-header .conteneur.text {
@@ -191,10 +255,13 @@ main #sub-header .conteneur.text p {
 }
 
 main #sub-header .conteneur.image {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
 main #sub-header .conteneur.image img {
+    -o-object-fit: cover;
     object-fit: cover;
     min-width: 100%;
 }
@@ -205,9 +272,9 @@ main #author .conteneur-1200-image {
     min-width: 30%;
     height: 456px;
     background-image: url(../../images/Qui\ je\ suis.jpg);
-    background-image: url(../../images/Qui\ je\ suis.jpg);
     background-position: -120px;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 main #author .conteneur-1200-text {
@@ -216,6 +283,9 @@ main #author .conteneur-1200-text {
 }
 
 main #author .conteneur-1200 {
+    -webkit-box-orient: inherit;
+    -webkit-box-direction: inherit;
+    -ms-flex-direction: inherit;
     flex-direction: inherit;
 
 }
@@ -224,7 +294,11 @@ main #author .conteneur-1200 {
 
 main #roman .conteneur-full {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -253,6 +327,8 @@ main #roman .conteneur-full-image {
     width: 50%;
     min-height: 60vh;
     background-color: #EFEFEF;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     background-image: url(../../images/route-alaska.jpg);
     background-repeat: no-repeat;
@@ -270,6 +346,9 @@ main #roman.chapitre {
 }
 
 main #roman.chapitre:nth-child(3n) .conteneur-full {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
 }
 
@@ -287,13 +366,18 @@ main #roman.chapitre .conteneur-full-text h2,
 }
 
 main #roman .conteneur-full-image img {
+    -o-object-fit: cover;
     object-fit: cover;
     min-width: 100%;
 }
 
+#roman.chapitre .conteneur-full-text a {
+    width: 100px;
+}
+
 /***************************************************************************************************** FORMULAIRES*/
 #form {
-    width: 1230px;
+    max-width: 1230px;
     margin: 20px auto;
 
 }
@@ -301,8 +385,15 @@ main #roman .conteneur-full-image img {
 
 main #form .row {
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     width: 100%;
 }
@@ -310,7 +401,7 @@ main #form .row {
 main #form .row input,
 main #form textarea {
 
-    padding: 5px 30px;
+    padding: 20px 30px;
     border: 1px solid black;
     font-size: 14px;
     margin: 10px 20px;
@@ -355,6 +446,8 @@ main #form .row input {
 .commentaires {
     margin: 100px auto;
     max-width: 1200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -363,6 +456,8 @@ main #form .row input {
 }
 
 .comments {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
     padding: 0 2%;
 }
@@ -393,6 +488,13 @@ main #form .row input {
 }
 
 /***************************************************************************************************** MEDIA QUERIES 1024px*/
+@media (max-width: 1220px) {
+
+    p,
+    #form {
+        padding: 0 5%;
+    }
+}
 
 @media (max-width: 1024px) {
 
@@ -405,6 +507,9 @@ main #form .row input {
     }
 
     main .chapitre.paire {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
         flex-direction: row-reverse;
     }
 
@@ -413,22 +518,23 @@ main #form .row input {
         width: 100%;
     }
 
-    main #sub-header .conteneur.text {
 
-        padding: 5% 0;
+    main #sub-header .chapitre {
+        width: 100%;
     }
 
-    main #sub-header h3,
-    main #sub-header span,
-    main #sub-header a {
-
-        margin: 0 5%;
+    main #sub-header .chapitre:nth-child(2) {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
     }
 
-    main #sub-header p {
-
-        margin: 15px 5%;
+    #form.connexionInscription {
+        margin-top: 160px;
     }
+
+
 
 }
 
@@ -443,6 +549,8 @@ main #form .row input {
     main #header h2 {
         font-size: 1.8em;
     }
+
+
 
 }
 
@@ -459,12 +567,17 @@ main #form .row input {
     }
 
     main .conteneur-1200 {
+        -webkit-box-orient: vertical !important;
+        -webkit-box-direction: reverse !important;
+        -ms-flex-direction: column-reverse !important;
         flex-direction: column-reverse !important;
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
 
     }
 
     main #roman .conteneur-full {
+        -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
 
@@ -504,6 +617,18 @@ main #form .row input {
     main #sub-header .conteneur {
         padding: 0;
     }
+
+    main #author .conteneur-1200-image {
+        background-position: initial;
+    }
+
+    .conteneur-full-text {
+        margin: 15px auto;
+    }
+
+    .btn {
+        margin: 10px auto;
+    }
 }
 
 /***************************************************************************************************** MEDIA QUERIES 425px */
@@ -511,7 +636,7 @@ main #form .row input {
 @media (max-width: 425px) {
 
     main #header {
-        height: 100vh;
+        height: calc(100vh - 94px);
     }
 
     main #header h1 {
@@ -527,9 +652,10 @@ main #form .row input {
     }
 
     footer .menu-footer {
-
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
-
     }
 
     footer .category-footer {
@@ -547,6 +673,9 @@ main #form .row input {
         margin: 10% 10% 5% 10% !important;
     }
 
+    #form.connexionInscription {
+        margin-top: initial
+    }
 }
 
 /***************************************************************************************************** MEDIA QUERIES 320px */

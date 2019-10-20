@@ -11,9 +11,16 @@ header #menu {
     max-width: 1200px;
     padding: 0 30px;
     margin: 20px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
@@ -38,17 +45,36 @@ header .menu-toggle {
     display: none;
 }
 
+.fa-unlock-alt {
+    position: relative;
+    top: 7px;
+}
+
 header .menuHamburger:checked~.menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 header nav {
     width: initial;
     background-color: inherit;
-    box-shadow: none
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    /* -webkit-box-align: center;
+    -ms-flex-align: center; */
+    /* align-items: center; */
 }
 
 header nav a.icone {
@@ -72,11 +98,13 @@ header nav a.btn {
     color: #FFF;
     border-radius: 60px;
     border: 0;
+    -webkit-box-shadow: none;
     box-shadow: none;
 }
 
 header nav a.btn:hover {
     background-color: #1d79a2;
+    -webkit-box-shadow: none;
     box-shadow: none;
 }
 
@@ -90,9 +118,13 @@ header nav a.btn:hover {
     }
 
     header nav {
-        width: 100%;
+
         text-align: center;
-        margin: 20px 0;
+        margin: 0 auto;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+
     }
 
     header #menu {
