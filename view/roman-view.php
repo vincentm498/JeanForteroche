@@ -6,7 +6,7 @@
 <!-- Content -->
 <main>
 
-    <section id="header">
+    <section id="header" class="roman">
         <h1>Billet simple <br>
             pour l'Alaska</h1>
     </section>

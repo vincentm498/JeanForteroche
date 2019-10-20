@@ -12,7 +12,6 @@ use JeanForteroche\controller\MembersController;
 use JeanForteroche\controller\Controller;
 
 
-
 $action = "";
 
 if (isset($_GET['action'])) {
@@ -91,7 +90,7 @@ switch ($action) {
 
     case 'signalComment':
         $comment = new CommentsController;
-        $comment->signalComment();
+        $comment->signalComment($_GET['id_article']);
         break;
 
         // Backoffice ////////////////////////////////////////////////////////

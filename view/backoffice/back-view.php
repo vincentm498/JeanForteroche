@@ -20,11 +20,11 @@
             <div class="conteneur bloc">
                 <h2>Mes articles </h2>
                 <a href="index.php?action=backArticles">Voir tous les articles</a>
-                <a href="index.php?action=AddArticles">Créer un article </a>
+                <a href="index.php?action=AddArticles">Créer&nbspun&nbsparticle </a>
             </div>
 
             <div class="conteneur bloc">
-                <h2>Les commentaires</h2> <a href="back-commentaires.html">Voir tous les commentaires</a>
+                <h2>Les commentaires</h2>
                 <h3>Les commentaires à modérer</h3>
                 <ul>
                     <?php

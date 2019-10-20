@@ -37,7 +37,7 @@
                         <textarea name="sentence" id="resume" cols="30" rows="10"></textarea>
                         <h3>Contenu de l'article</h3>
                         <textarea name="content" id="contenu" cols="30" rows="10"></textarea>
-                        <input type="submit" value="Envoyer">
+                        <input name="envoi" type="submit" value="Envoyer">
                     </form>
                 </div>
             </div>

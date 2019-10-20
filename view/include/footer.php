@@ -15,7 +15,7 @@
                 <li><a class="link-footer" href="index.php?page=home#header">Accueil</a></li>
                 <li><a class="link-footer" href="index.php?page=home#author">Qui suis-je</a></li>
                 <li><a class="link-footer" href="index.php?page=#roman">Roman</a></li>
-                <li><a class="link-footer" href="index.php?action=back">Administration</a></li>
+                <li><a class="link-footer" href="index.php?action=back&amp;id=<?= $article['id'] ?>">Administration</a></li>
 
             </ul>
         </div>

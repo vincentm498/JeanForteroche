@@ -11,7 +11,7 @@
         <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
         <input type="password" name="pass" id="pass" placeholder="Mots de passe">
         <input class="btn light" name="envoi" type="submit" value="Connexion">
-        <p>Pas de compte <a href="index.php?action=inscription">inscription</a> </p>
+        <p>Pas de compte <a href="index.php?action=inscription&amp;id=<?= $_GET['id'] ?>">inscription</a> </p>
     </div>
 </form>
 <!-- template footer -->

@@ -29,9 +29,9 @@
                                         <p>Créé le: <span><?= $article['date_post'] ?></span> </p>
                                     </div>
                                     <div class="lien-article">
-                                        <a href="index.php?action=article&id=<?= $article['id'] ?>" target="_blank">Voir l'article</a>
+                                        <a href="index.php?action=article&id=<?= $article['id'] ?>" target="_blank">Voir l'article sur le front</a>
                                         <a href="index.php?action=modifArticle&id=<?= $article['id'] ?>">Modifier</a>
-                                        <a href="index.php?action=DeleteArticles&id=<?= $article['id'] ?>" onclick="return confirm('Supprimer l\'article n°<?php echo $article['id'] ?>');">Supprimer</a>
+                                        <a href="index.php?action=DeleteArticles&id=<?= $article['id'] ?>" onclick="return confirm('Supprimer l\'article: <?php echo $article['title'] ?>');">Supprimer</a>
                                     </div>
                                 </div>
                             </li>

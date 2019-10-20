@@ -6,9 +6,9 @@ require 'view/include/header.php';
 
 <!-- Content -->
 <main>
-    <section id="header">
+    <section id="header" class="article">
         <img src="<?= $article['lien_image1'] ?>" alt="">
-        <h1 class="chap-image">CHAPITRE <?= ($article['id']) ?><br>Billet simple pour l'Alaska</h1>
+        <h1 class="chap-image">CHAPITRE <?= $article['id'] ?><br><?= $article['title'] ?></h1>
     </section>
 
     <section>
@@ -58,7 +58,7 @@ require 'view/include/header.php';
                             Le: <?= date_format(date_create($comment['date_post']), "d/m/Y H:i") ?>
                             <?php
                                     if ($comment['report'] == 0) { ?>
-                                <a href="index.php?action=signalComment&amp;id=<?= $comment['comment_id'] ?>"><i class="fas fa-exclamation-circle"></i></a>
+                                <a href="index.php?action=signalComment&amp;id_comment=<?= $comment['comment_id'] ?>&amp;id_article=<?= $article['id'] ?>"><i class="fas fa-exclamation-circle"></i></a>
                             <?php } ?>
                             <p><?= $comment['post'] ?></p>
                         </div>
