@@ -8,13 +8,14 @@ class CommentsController  extends Controller
 {
 
     //Ajout d'un commentaire 
-    public function addComment($articleId, $comment)
+    //public function addComment($articleId, $comment)
+    public function addComment($articleId)
     {
 
         $commentsModel = new Comments();
         $membreID = $_SESSION['membreID'];
 
-        $comment = htmlspecialchars($_POST['comment']);
+        $comment = trim(htmlspecialchars($_POST['comment']));
         if (!empty($comment)) {
             $addcomment = $commentsModel->postComment($articleId, $membreID, $comment);
 
@@ -37,8 +38,8 @@ class CommentsController  extends Controller
         $commentsModel = new Comments();
         $signalComment = $commentsModel->signalComment($_GET['id_comment']);
 
-        header('Location: index.php?action=article&id=' . $_GET['id_article']);
         $this->setFlash("Commentaire signalé", 'green');
+        header('Location: index.php?action=article&id=' . $_GET['id_article']);
     }
 
 
@@ -49,8 +50,9 @@ class CommentsController  extends Controller
 
         $commentsModel = new Comments();
         $signalComment = $commentsModel->signalValideComment($_GET['id']);
-        header('Location: index.php?action=back');
+
         $this->setFlash("Commentaire validé", 'green');
+        header('Location: index.php?action=back');
     }
 
     //Supprimer un commentaire
@@ -60,7 +62,8 @@ class CommentsController  extends Controller
 
         $commentsModel = new Comments();
         $signalComment = $commentsModel->signalRefusComment($_GET['id']);
-        header('Location: index.php?action=back');
+
         $this->setFlash("Commentaire Supprimé", 'green');
+        header('Location: index.php?action=back');
     }
 }

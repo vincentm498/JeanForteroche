@@ -41,8 +41,7 @@ class Controller
     public function controleBack()
     {
 
-        if ($_SESSION['membreGroupe'] == 1) { } else {
-
+        if ($_SESSION['membreGroupe'] != 1) {
             header('Location: index.php?action=connexion&id=' .  $_GET['id']);
         }
     }

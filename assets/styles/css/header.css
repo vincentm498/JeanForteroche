@@ -217,6 +217,11 @@ header nav a.btn:hover {
         margin: 0;
     }
 
+    header .menuHamburger:checked~.menu {
+
+        width: 100%;
+    }
+
 
 }
 

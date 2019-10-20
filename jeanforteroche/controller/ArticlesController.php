@@ -84,8 +84,8 @@ class ArticlesController extends Controller
         $article = $articlesModel->deleteArticle($_GET['id']);
 
         $this->controleBack();
-        header('Location: index.php?action=backArticles');
         $this->setFlash("Article supprimé", 'red');
+        header('Location: index.php?action=backArticles');
     }
 
     //Modification de l'article

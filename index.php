@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-ini_set('display_errors', 1);
+// ini_set('display_errors', 1);
 
 require "vendor/autoload.php";
 
@@ -18,8 +18,6 @@ if (isset($_GET['action'])) {
     $action = $_GET['action'];
 }
 
-
-// if (isset($_POST['login_success'])) { }
 
 switch ($action) {
 
@@ -41,7 +39,7 @@ switch ($action) {
 
     case 'addComment':
         $comments = new CommentsController;
-        $comments->addComment($_GET['id'], $_POST['comment']);
+        $comments->addComment($_GET['id']);
         break;
 
         // Ajout de membres
@@ -90,7 +88,7 @@ switch ($action) {
 
     case 'signalComment':
         $comment = new CommentsController;
-        $comment->signalComment($_GET['id_article']);
+        $comment->signalComment();
         break;
 
         // Backoffice ////////////////////////////////////////////////////////

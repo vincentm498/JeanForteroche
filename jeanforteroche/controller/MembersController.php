@@ -21,10 +21,10 @@ class MembersController extends Controller
 
         if (isset($_POST['envoi'])) { // si formulaire soumis
 
-            $pseudo = htmlspecialchars($_POST['pseudo']);
-            $pass = htmlspecialchars($_POST['pass']);
-            $email = htmlspecialchars($_POST['email']);
-            $verification_pass = htmlspecialchars($_POST['verification_pass']);
+            $pseudo = trim(htmlspecialchars($_POST['pseudo']));
+            $pass = trim(htmlspecialchars($_POST['pass']));
+            $email = trim(htmlspecialchars($_POST['email']));
+            $verification_pass = trim(htmlspecialchars($_POST['verification_pass']));
             $articleId = 0;
             if (isset($_POST['id'])) {
                 $articleId = $_POST['id'];
@@ -108,8 +108,8 @@ class MembersController extends Controller
     {
         $verifMember = new Members();
 
-        $email = htmlspecialchars($_POST['email']);
-        $password = htmlspecialchars($_POST['pass']);
+        $email = trim(htmlspecialchars($_POST['email']));
+        $password = trim(htmlspecialchars($_POST['pass']));
         $articleId = 0;
         $url = 'index.php?action=connexion';
 
