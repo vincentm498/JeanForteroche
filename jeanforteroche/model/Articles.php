@@ -39,8 +39,6 @@ class Articles extends Connect
         $db = $this->dbConnect();
         $article = $db->prepare('INSERT INTO articles(title, sentence, content, date_post, lien_image1) VALUES(?, ?, ?, NOW(), ?)');
         $article->execute(array($title, $sentence, $content, $uploadfile));
-
-        //return $db->lastInsertId();
     }
 
     // Supprimer  l'article
@@ -64,14 +62,15 @@ class Articles extends Connect
     }
 
     // Update de  l'article
-    public function updateArticle($id, $title, $sentence, $content)
+    public function updateArticle($id, $title, $sentence, $content, $uploadfile)
     {
 
         $db = $this->dbConnect();
         $article = $db->prepare('UPDATE `articles` 
         SET `title`="' . $title . '",
         `sentence`="' . $sentence . '",
-        `content`="' . $content . '"
+        `content`="' . $content . '",
+        `lien_image1`="' . $uploadfile . '"
         WHERE id = ?');
         $article->execute(array($id));
     }

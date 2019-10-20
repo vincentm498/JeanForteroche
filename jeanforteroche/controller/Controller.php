@@ -37,4 +37,13 @@ class Controller
         $articles = $articlesModel->getAllArticles();
         return $articles;
     }
+
+    public function controleBack()
+    {
+
+        if ($_SESSION['membreGroupe'] == 1) { } else {
+
+            header('Location: index.php?action=connexion&id=' .  $_GET['id']);
+        }
+    }
 }

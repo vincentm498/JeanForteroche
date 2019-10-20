@@ -31,20 +31,25 @@ class ArticlesController extends Controller
     //Affichage de l'article
     public function articleView()
     {
+
         $articlesModel = new Articles();
-        $articles = $articlesModel->getAllArticles();
         $article = $articlesModel->getArticle($_GET['id']);
 
-        $commentsModel = new Comments();
-        $comments = $commentsModel->getAllComments($_GET['id']);
+        if ($article['id'] == $_GET['id']) {
+            $commentsModel = new Comments();
+            $comments = $commentsModel->getAllComments($_GET['id']);
 
-        // Affichage
-        require 'view/article-view.php';
+            // Affichage
+            require 'view/article-view.php';
+        } else {
+            header('Location: index.php');
+        }
     }
 
     //Affichae du nouvel l'article
     public function addArticle()
     {
+        $this->controleBack();
         require 'view/backoffice/add-articles-view.php';
     }
 
@@ -53,26 +58,32 @@ class ArticlesController extends Controller
     {
 
         $articlesModel = new Articles();
-        $title = $_POST['title'];
+        $title = htmlspecialchars($_POST['title']);
         $sentence = $_POST['sentence'];
         $content = $_POST['content'];
-
-
         $uploaddir = "./assets/images/";
         $uploadfile       = $uploaddir . basename($_FILES['userfile']['name']);
         $movefile = move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
 
-        $addArticle = $articlesModel->postArticle($title, $sentence, $content, $uploadfile);
-        $this->setFlash("Article ajouté", 'green');
-        require 'view/backoffice/add-articles-view.php';
+        if (!empty($title) &&  !empty($sentence) &&  !empty($content) &&  !empty($uploadfile) && isset($_POST['envoi'])) {
+            $addArticle = $articlesModel->postArticle($title, $sentence, $content, $uploadfile);
+            $this->setFlash("Article ajouté", 'green');
+            $this->controleBack();
+            require 'view/backoffice/add-articles-view.php';
+        } else {
+            $this->setFlash("Veuillez remplir tous les champs", 'red');
+            require 'view/backoffice/add-articles-view.php';
+        }
     }
 
     //Suppression de l'article
     public function deleteArticle()
     {
+
         $articlesModel = new Articles();
         $article = $articlesModel->deleteArticle($_GET['id']);
 
+        $this->controleBack();
         header('Location: index.php?action=backArticles');
         $this->setFlash("Article supprimé", 'red');
     }
@@ -83,19 +94,31 @@ class ArticlesController extends Controller
         $articlesModel = new Articles();
         $article = $articlesModel->modifArticle($_GET['id']);
 
+        $this->controleBack();
         require 'view/backoffice/update-articles-view.php';
     }
 
     //Mise à jour de l'article
     public function updateArticle()
     {
+
         $articlesModel = new Articles();
-        $title = $_POST['title'];
+        $title = htmlspecialchars($_POST['title']);
         $sentence = $_POST['sentence'];
         $content = $_POST['content'];
-        $article = $articlesModel->updateArticle($_GET['id'], $title, $sentence, $content);
+        $uploaddir = "./assets/images/";
+        $uploadfile       = $uploaddir . basename($_FILES['userfile']['name']);
+        $movefile = move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile);
 
-        $this->setFlash("Article modifié", 'green');
-        header('Location: index.php?action=backArticles');
+        if (!empty($title) &&  !empty($sentence) &&  !empty($content)  && isset($_POST['envoi'])) {
+            $article = $articlesModel->updateArticle($_GET['id'], $title, $sentence, $content, $uploadfile);
+
+            $this->controleBack();
+            $this->setFlash("Article modifié", 'green');
+            header('Location: index.php?action=backArticles');
+        } else {
+            $this->setFlash("Veuillez remplir tous les champs", 'red');
+            header('Location: index.php?action=modifArticle&id=' . $_GET['id']);
+        }
     }
 }

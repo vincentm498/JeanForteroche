@@ -23,6 +23,7 @@ class Comments extends Connect
     // Ajoute un commentaire dans l'article
     public function postComment($articleId, $membreID, $comment)
     {
+
         $db = $this->dbConnect();
         $comments = $db->prepare('INSERT INTO post(post_id, members_id, post, date_post, report) VALUES(?, ?, ?, NOW(), 0)');
         $comments->execute(array($articleId, $membreID, $comment));

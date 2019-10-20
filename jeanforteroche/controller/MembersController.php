@@ -30,7 +30,7 @@ class MembersController extends Controller
                 $articleId = $_POST['id'];
             }
             if ($articleId == 0) {
-                $url = 'index.php';
+                $url = 'index.php?action=inscription';
             } else {
                 $url = 'index.php?action=inscription&id=' . $articleId;
             }
@@ -84,6 +84,7 @@ class MembersController extends Controller
     // Page Connection de membre
     public function connexion()
     {
+
         $id = 0;
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
@@ -107,50 +108,49 @@ class MembersController extends Controller
     {
         $verifMember = new Members();
 
-        if (isset($_POST['envoi'])) {
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['pass']);
+        $articleId = 0;
+        $url = 'index.php?action=connexion';
 
-            $email = htmlspecialchars($_POST['email']);
-            $password = htmlspecialchars($_POST['pass']);
-            $articleId = 0;
+        if (isset($_POST['id'])) {
+            $articleId = $_POST['id'];
+            $url = 'index.php?action=connexion&id=' . $articleId;
+        }
 
-            if (isset($_POST['id'])) {
-                $articleId = $_POST['id'];
-            }
-            if ($articleId == 0) {
-                $url = 'index.php';
-            } else {
-                $url = 'index.php?action=connexion&id=' . $articleId;
-            }
 
-            // on teste la déclaration de nos variables
-            if (!empty($email) &&  !empty($password)) {
+        if (!empty($email) &&  !empty($password) && isset($_POST['envoi'])) {
 
-                // Test email existe en bdd
-                $verifMember = $verifMember->getMemberConnexion($email);
+            $verifMember = $verifMember->getMemberConnexion($email);
 
-                // Test tableau existe
-                if ($verifMember !== FALSE) {
+            if ($verifMember !== FALSE) {
 
-                    // Test password identique
-                    if (password_verify($password, $verifMember['pass'])) {
+                if (password_verify($password, $verifMember['pass'])) {
 
-                        // Connexion
-                        $url = 'index.php?action=article&id=' . $articleId;
-                        $_SESSION['membreID'] = $verifMember['id'];
-                        $_SESSION['membreGroupe'] = $verifMember['id_groupe'];
-                        $_SESSION['membrePseudo'] = $verifMember['pseudo'];
-
-                        $this->setFlash("Connecté", 'green');
+                    // Connexion
+                    if ($verifMember['id_groupe'] == 1) {
+                        $url = 'index.php?action=back';
+                    } elseif ($articleId == 0) {
+                        $url = 'index.php';
                     } else {
-                        $this->setFlash("Email ou mot de passe incorrect", 'red');
+                        $url = 'index.php?action=article&id=' . $articleId;
                     }
+
+                    $_SESSION['membreID'] = $verifMember['id'];
+                    $_SESSION['membreGroupe'] = $verifMember['id_groupe'];
+                    $_SESSION['membrePseudo'] = $verifMember['pseudo'];
+
+                    $this->setFlash("Connecté", 'green');
                 } else {
-                    $this->setFlash("Identifiant incorrect", 'red');
+                    $this->setFlash("Email ou mot de passe incorrect", 'red');
                 }
+            } else {
+                $this->setFlash("Identifiant incorrect", 'red');
             }
         } else {
             $this->setFlash("Veuillez remplir tous les champs", 'red');
         }
+
         header('Location: ' . $url);
     }
 }

@@ -16,12 +16,8 @@ class BackController extends Controller
         $commentsModel = new Comments();
         $comments = $commentsModel->getAllCommentsBlog();
 
-        if ($_SESSION['membreGroupe'] == 1) {
-            require 'view/backoffice/back-view.php';
-        } else {
-
-            header('Location: index.php?action=connexion');
-        }
+        $this->controleBack();
+        require 'view/backoffice/back-view.php';
     }
 
     public function backArticles()
@@ -29,6 +25,7 @@ class BackController extends Controller
         $articlesModel = new Articles();
         $articles = $articlesModel->getAllArticles();
 
+        $this->controleBack();
         require 'view/backoffice/articles-view.php';
     }
 }

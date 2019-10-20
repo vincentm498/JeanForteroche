@@ -14,24 +14,30 @@ class CommentsController  extends Controller
         $commentsModel = new Comments();
         $membreID = $_SESSION['membreID'];
 
-
         $comment = htmlspecialchars($_POST['comment']);
-        $addcomment = $commentsModel->postComment($articleId, $membreID, $comment);
+        if (!empty($comment)) {
+            $addcomment = $commentsModel->postComment($articleId, $membreID, $comment);
 
-        if ($addcomment === false) {
-            throw new Exception('Impossible d\'ajouter le commentaire !');
+            $this->setFlash("Commentaire ajouté", 'green');
+            if ($addcomment === false) {
+                throw new Exception('Impossible d\'ajouter le commentaire !');
+            } else {
+                header('Location: index.php?action=article&id=' . $articleId);
+            }
         } else {
-            header('Location: index.php?action=article&id=' . $articleId);
+            $this->setFlash("Veuillez remplir tous les champs", 'red');
+            header('Location: index.php?action=article&id=' . $_GET['id']);
         }
     }
 
     //Signal d'un commentaire 
     public function signalComment()
     {
-        $commentsModel = new Comments();
-        $signalComment = $commentsModel->signalComment($_GET['id']);
 
-        header('Location: index.php');
+        $commentsModel = new Comments();
+        $signalComment = $commentsModel->signalComment($_GET['id_comment']);
+
+        header('Location: index.php?action=article&id=' . $_GET['id_article']);
         $this->setFlash("Commentaire signalé", 'green');
     }
 
@@ -39,6 +45,7 @@ class CommentsController  extends Controller
     //Signal d'un commentaire valide
     public function signalValideComment()
     {
+        //$this->controleBack();
 
         $commentsModel = new Comments();
         $signalComment = $commentsModel->signalValideComment($_GET['id']);
@@ -49,6 +56,8 @@ class CommentsController  extends Controller
     //Supprimer un commentaire
     public function signalRefusComment()
     {
+        //$this->controleBack();
+
         $commentsModel = new Comments();
         $signalComment = $commentsModel->signalRefusComment($_GET['id']);
         header('Location: index.php?action=back');
