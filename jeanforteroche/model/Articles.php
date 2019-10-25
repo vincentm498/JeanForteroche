@@ -48,6 +48,8 @@ class Articles extends Connect
         $db = $this->dbConnect();
         $article = $db->prepare('DELETE FROM articles WHERE id = ?');
         $article->execute(array($id));
+        $comment = $db->prepare('DELETE FROM post WHERE post_id = ?');
+        $comment->execute(array($id));
     }
 
     // Modifs de  l'article
